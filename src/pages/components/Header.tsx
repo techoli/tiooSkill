@@ -5,6 +5,8 @@ import im1 from "../../images/headerimg/bgim1.png";
 import im2 from "../../images/headerimg/bgim2.png";
 import im3 from "../../images/headerimg/bgim3.png";
 import im4 from "../../images/headerimg/bgim4.png";
+import cicd from "../../images/footerimg/CICD.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   const doAction = () => {};
@@ -15,7 +17,15 @@ function Header() {
       <img src={im3} className="absolute bottom-[-290px] left-0 z-[-1]" />
       <img src={im4} className="absolute right-[167px] bottom-[10px] z-[-1]" />
       <div className="w-full px-10  bg-[#FFF] rounded-[32px] py-10">
-        <div className="w-full"></div>
+        <div className="w-full flex h-[30px]  mb-10 justify-between items-center">
+          <img src={cicd} className="h-[20px]" />
+          <div className="flex gap-7">
+            <Link to="/">Home</Link>
+            <Link to="/">Courses</Link>
+            <Link to="/">About Us</Link>
+            <Link to="/">Contact</Link>
+          </div>
+        </div>
         <div className="w-full flex gap-3">
           <div className="flex-1">
             <h1 className="text-[48px] font-[700] text-[#45426a] leading-[60px]">
