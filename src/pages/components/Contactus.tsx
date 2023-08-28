@@ -5,10 +5,10 @@ import chair from "../../images/contactimg/ph_office-chair.png";
 
 function Contactus() {
   return (
-    <div className="flex px-24">
+    <div className="flex flex-col sm:flex-row px-4 sm:px-24 gap-6">
       {" "}
       <div className="flex-1">
-        <h1 className="text-[50px]">Contact Us</h1>
+        <h1 className="text-[24px] sm:text-[50px]">Contact Us</h1>
         <div className="flex gap-3 mt-5">
           <img src={mail} />
           <a className="underline" href="mailto:aniekpenoudom@gmail.com">
@@ -29,11 +29,11 @@ function Contactus() {
           </p>
         </div>
       </div>
-      <div className="flex-1 pl-20 ">
-        <div className="bg-[#FFF] h-full p-5 relative ">
-          <h1 className="text-[32px]">Request info</h1>
+      <div className="flex-1 pl-0 smLpl-20 ">
+        <div className="bg-[#FFF] h-[250px] sm:h-full p-5 relative ">
+          <h1 className="text-[18px] sm:text-[32px]">Request info</h1>
           <input
-            className="border-[#b4bac2] border-2 rounded-[10px] mt-3 h-[68px] w-[377px] "
+            className="border-[#b4bac2] border-2 rounded-[10px] mt-3 h-[68px] w-full sm:w-[377px] "
             type="text"
           />
           <button className=" absolute bottom-5 block bg-[#E6E6FA] text-[#87909E] h-[50px] w-[100px] rounded-[10px]">

@@ -6,10 +6,13 @@ import cicd from "../../images/footerimg/CICD.png";
 
 function Footer() {
   return (
-    <div className="  w-full relative py-10 px-5 sm:px-24 mt-20 mb-5 border-[#afb3ba] border-t-2">
+    <div className="  w-full relative py-10 px-5 sm:px-24 mt-8 sm:mt-20 mb-5 border-[#afb3ba] border-t-2">
       <div className="w-full flex justify-between">
-        <img src={cicd} />
-        <div className="absolute top-[50px] left-[140px] sm:static flex  gap-3 w-[130px] items-center justify-center ">
+        <img
+          src={cicd}
+          className="w-[60px] h-[20px] sm:h-[50px] sm:w-[100px]"
+        />
+        <div className=" flex  gap-3 w-[130px] items-center justify-center  ">
           <AiOutlineTwitter className="w-[32px] h-[32px]" />
           <SlSocialLinkedin className="w-[32px] h-[32px]" />
           <AiOutlineInstagram className="w-[32px] h-[32px]" />
