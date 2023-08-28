@@ -10,7 +10,7 @@ function Footer() {
       <div className="w-full flex justify-between">
         <img
           src={cicd}
-          className="w-[60px] h-[20px] sm:h-[50px] sm:w-[100px]"
+          className="w-[60px] h-[20px] sm:h-[30px] sm:w-[100px]"
         />
         <div className=" flex  gap-3 w-[130px] items-center justify-center  ">
           <AiOutlineTwitter className="w-[32px] h-[32px]" />

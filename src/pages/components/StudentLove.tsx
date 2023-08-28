@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import test from "../../images/stdloveimg/test.png";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import Button from "../../components/UI/Button";
+import DummySlideBtn from "../../components/component/Dummyslidebtm";
 
 function StudentLove() {
   const [activeright, setActiveright] = useState(true);
@@ -75,16 +76,19 @@ function StudentLove() {
                 <p className="">Andrew Etim</p>
               </div>
             </div>
+            <div className=" absolute bottom-4 right-0 left-0  block sm:hidden">
+              <DummySlideBtn />
+            </div>
           </div>
         </div>
       </div>
-      <div className="w-full  px-4 sm:px-28 py-20 text-center">
-        <h1 className="mb-10 text-[18px] sm:text-[32px]">
+      <div className="w-full mt-8 px-4 sm:px-28 py-8 sm:py-20 text-center stdlovebg mb-10 rounded-[20px]">
+        <h1 className="mb-10 text-[18px] sm:text-[32px] text-[#FFF]">
           Enroll Now and Start Your Journey
         </h1>
-        <p>
-          Our enrollment is now open. Secure your spot and embark on your
-          journey to becoming a skilled product manager
+        <p className="text-[#FFF]">
+          Our enrollment is now open. Secure your spot and embark on
+          <br /> your journey to becoming a skilled product manager
         </p>
         <div className="w-[200px] m-[auto] mt-7">
           {" "}

@@ -496,4 +496,8 @@ input[type="checkbox"]:checked {
     background: url(./images/aboutusimgs/happy-frnds.png) center;
     background-size: cover;
   }
+  .stdlovebg {
+    background: url(./images/stdloveimg/imgstdlove.png) center;
+    background-size: cover;
+  }
 }
