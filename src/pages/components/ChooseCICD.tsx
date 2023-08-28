@@ -54,7 +54,7 @@ function ChooseCICD() {
               <p className="text-[14px] sm:text-[16px] mb-5 text-[#FFFF]">
                 {items.text}
               </p>
-              <div className="flex gap-3 mb-5">
+              <div className="w-full flex justify-center sm:justify-start gap-3 mb-5 text-white">
                 {/* <p className="text-[30px]">&#8601;</p>
                  */}
                 <svg
