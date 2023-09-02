@@ -14,7 +14,7 @@ export const Input: React.FC<input> = ({ value, onchange, name, label }) => {
         value={value}
         onChange={onchange}
         name={name}
-        className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px]"
+        className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px] p-3"
       />
     </div>
   );
@@ -32,7 +32,7 @@ export const Tesxtarea: React.FC<input> = ({
         value={value}
         onChange={onchange}
         name={name}
-        className="w-full border-[#c7ced8] border-2  rounded-[8px] h-[200px]"
+        className="w-full border-[#c7ced8] border-2  rounded-[8px] h-[200px] p-3"
       />
     </div>
   );
