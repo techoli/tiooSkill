@@ -15,3 +15,10 @@ export interface CICDDATA {
   heading: string;
   text: string;
 }
+export interface COURSESData {
+  id: number;
+  img: string;
+  heading: string;
+  text: string;
+  link?: string;
+}

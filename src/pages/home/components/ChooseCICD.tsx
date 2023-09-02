@@ -1,8 +1,8 @@
 import React from "react";
-import { CICDdata, CICDdata2 } from "../../data/data";
+import { CICDdata, CICDdata2 } from "../../../data/data";
 import { Link } from "react-router-dom";
-import choose1 from "../../images/choosecicdimg/choose1.png";
-import choose2 from "../../images/choosecicdimg/choose2.png";
+import choose1 from "../../../images/choosecicdimg/choose1.png";
+import choose2 from "../../../images/choosecicdimg/choose2.png";
 
 function ChooseCICD() {
   return (

@@ -1,5 +1,15 @@
-import { CICDDATA } from "../types/type";
+import { CICDDATA, COURSESData } from "../types/type";
 import tick from "../images/choosecicdimg/mdi_shield-tick.png";
+import crs1 from "../images/courses/crs1.png";
+import crs2 from "../images/courses/crs2.png";
+import crs3 from "../images/courses/crs3.png";
+import crs4 from "../images/courses/crs4.png";
+import crs5 from "../images/courses/crs5.png";
+import crs6 from "../images/courses/crs6.png";
+import wrk1 from "../images/courses/wrk1.png";
+import wrk2 from "../images/courses/wrk2.png";
+import wrk3 from "../images/courses/wrk3.png";
+import wrk4 from "../images/courses/wrk4.png";
 
 export const CICDdata: CICDDATA[] = [
   {
@@ -51,5 +61,70 @@ export const CICDdata2: CICDDATA[] = [
     img: tick,
     heading: "Data-Driven Decision",
     text: "Making Harness the power of data analytics to make informed product decisions and drive growth",
+  },
+];
+export const HOWITWORKSDATA: CICDDATA[] = [
+  {
+    id: 1,
+    img: wrk1,
+    heading: "Enroll and get started",
+    text: "Master the fundamentals of product management, including market research, user personas, and product roadmaps",
+  },
+  {
+    id: 2,
+    img: wrk2,
+    heading: "Access all content",
+    text: "Get access to all content (Quizzes, videos, classes), interactive workshops, industry insights, and personalized guidance through each course.",
+  },
+  {
+    id: 3,
+    img: wrk3,
+    heading: "Complete Projects",
+    text: "Complete projects using real-world scenarios that prepare you to use what you learn right away",
+  },
+  {
+    id: 4,
+    img: wrk4,
+    heading: "Earn a certificate",
+    text: "Get recognized, earn certificate at the end of the program and become a master in your field",
+  },
+];
+
+export const COURSES: COURSESData[] = [
+  {
+    id: 1,
+    img: crs1,
+    heading: "INTRODUCTION TO PRODUCT MANAGEMENT",
+    text: "This course focuses on the fundamentals of Product management. You will learn who a product manager is, what project management is, the types if product management, responsibilities, its importance, and the 10 top skills for effective product management.",
+  },
+  {
+    id: 2,
+    img: crs2,
+    heading: "PRODUCT MANAGEMENT OPERATIONS",
+    text: "Explore the stages in every product’s life cycle, market understanding, product development process, user-Centered Design, product strategies, key metrics and measurement, with real world case studies and examples.",
+  },
+  {
+    id: 3,
+    img: crs3,
+    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
+    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+  },
+  {
+    id: 4,
+    img: crs4,
+    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
+    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+  },
+  {
+    id: 5,
+    img: crs5,
+    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
+    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+  },
+  {
+    id: 6,
+    img: crs6,
+    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
+    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
   },
 ];

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import test from "../../images/stdloveimg/test.png";
+import test from "../../../images/stdloveimg/test.png";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-import Button from "../../components/UI/Button";
-import DummySlideBtn from "../../components/component/Dummyslidebtm";
+import Button from "../../../components/UI/Button";
+import DummySlideBtn from "../../../components/component/Dummyslidebtm";
 
 function StudentLove() {
   const [activeright, setActiveright] = useState(true);

@@ -1,11 +1,10 @@
 import React from "react";
-import headerimg from "../../images/headerimg/headerimgs.png";
-import Button from "../../components/UI/Button";
-import im1 from "../../images/headerimg/bgim1.png";
-import im2 from "../../images/headerimg/bgim2.png";
-import im3 from "../../images/headerimg/bgim3.png";
-import im4 from "../../images/headerimg/bgim4.png";
-import cicd from "../../images/footerimg/CICD.png";
+import headerimg from "../../../images/headerimg/headerimgs.png";
+import Button from "../../../components/UI/Button";
+import im1 from "../../../images/headerimg/bgim1.png";
+import im2 from "../../../images/headerimg/bgim2.png";
+import im3 from "../../../images/headerimg/bgim3.png";
+import im4 from "../../../images/headerimg/bgim4.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -28,16 +27,7 @@ function Header() {
         src={im4}
         className=" absolute right-[18px] sm:right-[167px] bottom-[2px] sm:bottom-[10px] z-[-1]"
       />
-      <div className="w-full px-3 sm:px-10  bg-[#FFF] rounded-[15px] sm:rounded-[32px] py-10">
-        <div className="w-full hidden h-[30px]  mb-10 justify-between items-center sm:flex">
-          <img src={cicd} className="h-[20px]" />
-          <div className="flex gap-7">
-            <Link to="/">Home</Link>
-            <Link to="/">Courses</Link>
-            <Link to="/">About Us</Link>
-            <Link to="/">Contact</Link>
-          </div>
-        </div>
+      <div className="w-full px-3 sm:px-10  bg-[#FFF] rounded-[15px] sm:rounded-[32px] py-10 mt-16 sm:mt-8">
         <div className="w-full flex sm:flex-row flex-col gap-3">
           <div className="flex-1">
             <h1 className="text-[32px] sm:text-[48px] font-[700] text-[#45426a] leading-[45px] sm:leading-[60px] text-center sm:text-left">

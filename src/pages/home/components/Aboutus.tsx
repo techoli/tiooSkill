@@ -1,8 +1,8 @@
 import React from "react";
-import dot1 from "../../images/aboutusimgs/dot1.png";
-import dot2 from "../../images/aboutusimgs/dot2.png";
-import dot3 from "../../images/aboutusimgs/dot3.png";
-import std from "../../images/aboutusimgs/std.png";
+import dot1 from "../../../images/aboutusimgs/dot1.png";
+import dot2 from "../../../images/aboutusimgs/dot2.png";
+import dot3 from "../../../images/aboutusimgs/dot3.png";
+import std from "../../../images/aboutusimgs/std.png";
 import { Link } from "react-router-dom";
 
 function Aboutus() {

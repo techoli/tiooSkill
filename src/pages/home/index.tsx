@@ -1,5 +1,5 @@
 import React from "react";
-import PageLayout from "../layouts/PageLayout";
+import PageLayout from "../../layouts/PageLayout";
 import Header from "./components/Header";
 import ChooseCICD from "./components/ChooseCICD";
 import Aboutus from "./components/Aboutus";

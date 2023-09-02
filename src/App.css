@@ -500,4 +500,11 @@ input[type="checkbox"]:checked {
     background: url(./images/stdloveimg/imgstdlove.png) center;
     background-size: cover;
   }
+  .noshrink {
+    flex-shrink: 1 0 auto;
+  }
+  .contbg {
+    background: url(./images/contactimg/halfimg.png) center;
+    background-size: cover;
+  }
 }

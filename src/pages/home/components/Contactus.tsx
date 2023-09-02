@@ -1,7 +1,7 @@
 import React from "react";
-import phone from "../../images/contactimg/phone.png";
-import mail from "../../images/contactimg/mail-04.png";
-import chair from "../../images/contactimg/ph_office-chair.png";
+import phone from "../../../images/contactimg/phone.png";
+import mail from "../../../images/contactimg/mail-04.png";
+import chair from "../../../images/contactimg/ph_office-chair.png";
 
 function Contactus() {
   return (
