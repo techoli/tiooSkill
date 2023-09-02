@@ -15,13 +15,13 @@ function Contactus() {
             aniekpenoudom@gmail.com
           </a>{" "}
         </div>
-        <div className="flex mt-5 gap-3">
+        <div className="flex gap-3 mt-5">
           <img src={phone} />
           <a className="underline" href="tel:+ 2347018481060">
             + 234 701 848 1060
           </a>
         </div>
-        <div className="flex mt-5 gap-3 ">
+        <div className="flex gap-3 mt-5 ">
           <img src={chair} />
           <p>
             3 Atabara Street, off cairo street, Ademola Adetukonbo, Crescent,
@@ -33,7 +33,8 @@ function Contactus() {
         <div className="bg-[#FFF] h-[250px] sm:h-full p-5 relative ">
           <h1 className="text-[18px] sm:text-[32px]">Request info</h1>
           <input
-            className="border-[#b4bac2] border-2 rounded-[10px] mt-3 h-[68px] w-full  "
+            placeholder="okoliemmanuel@gmail.com"
+            className="border-[#b4bac2] border-2 rounded-[10px] mt-3 h-[68px] w-full p-4 "
             type="text"
           />
           <button className=" absolute bottom-5 block bg-[#E6E6FA] text-[#87909E] h-[50px] w-[100px] rounded-[10px]">

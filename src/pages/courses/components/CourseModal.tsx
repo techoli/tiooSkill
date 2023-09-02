@@ -13,7 +13,6 @@ interface CourseModalProps {
   title?: string;
   aliasname?: string;
   handleDelete?: any;
-  loading?: boolean;
 }
 
 const CourseModal: React.FC<CourseModalProps> = ({
@@ -22,12 +21,13 @@ const CourseModal: React.FC<CourseModalProps> = ({
   title,
   aliasname,
   handleDelete,
-  loading,
 }) => {
   const [sdescription, setsdescription] = useState("");
   const [naming, setnaming] = useState("");
+  const [loading, setloading] = useState(false);
   const doChange = () => {};
   const doAction = () => {
+    setloading(true);
     console.log("first");
     // Replace 'your_file_url' with the actual URL of the file you want to download.
     const fileUrl = "./pass.pdf";
@@ -41,6 +41,7 @@ const CourseModal: React.FC<CourseModalProps> = ({
 
     // Simulate a click event on the anchor element to start the download.
     link.click();
+    setloading(false);
   };
   return (
     <div className="h-[324]">

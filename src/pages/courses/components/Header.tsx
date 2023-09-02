@@ -138,7 +138,7 @@ function Header() {
                   transform: `translateX(-${activeitem * 370}px)`,
                   transitionDuration: "1s",
                 }}
-                className="min-w-[352px]   bg-[#FFF] rounded-[8px] relative "
+                className="min-w-[352px]   bg-[#FFF] rounded-[8px] relative"
               >
                 <div className="w-full">
                   <img className="w-full rounded-t-[8px]" src={item.img} />
