@@ -101,7 +101,7 @@ function Header() {
             </div>
           )}
           <div className="flex flex-col gap-5 ">
-            {allcourse ? (
+            {allcourse &&
               COURSES.map((item) => (
                 <div className="flex gap-3 h-[130px]">
                   <div className="w-[40%] ">
@@ -126,26 +126,30 @@ function Header() {
                     </button>
                   </div>
                 </div>
-              ))
-            ) : (
-              <div className="flex gap-3">
-                <div className="w-[40%]">
-                  <img
-                    src={COURSES[0].img}
-                    className="object-cover w-full h-full rounded-[8px]"
-                  />
+              ))}
+          </div>
+        </div>
+
+        {!allcourse && (
+          <div className="flex w-full gap-6 overflow-x-scroll sm:overflow-hidden ">
+            {COURSES.map((item) => (
+              <div
+                style={{
+                  transform: `translateX(-${activeitem * 370}px)`,
+                  transitionDuration: "1s",
+                }}
+                className="min-w-[352px]   bg-[#FFF] rounded-[8px] relative "
+              >
+                <div className="w-full">
+                  <img className="w-full rounded-t-[8px]" src={item.img} />
                 </div>
-                <div className="w-[55%]">
-                  <h1 className="text-[16px]">{COURSES[0].heading}</h1>
-                  {COURSES[0].heading.split(" ").length < 7 && (
-                    <p className="text-[12px]">
-                      {trimText(COURSES[0].text, 6)}
-                    </p>
-                  )}{" "}
+                <div className="relative flex flex-col gap-5 p-4">
+                  <h1 className=" text-[20px] ">{item.heading}</h1>
+                  <p className=" text-[14px] ">{item.text}</p>
                   <button
                     onClick={() => {
                       setActive(true);
-                      setitem(COURSES[0]?.link);
+                      setitem(item?.link);
                     }}
                     className="  border-[#4F46E5] border-2 w-[160px] h-[50px] rounded-[8px]"
                   >
@@ -153,38 +157,9 @@ function Header() {
                   </button>
                 </div>
               </div>
-            )}
+            ))}
           </div>
-        </div>
-
-        <div className="hidden w-full gap-6 overflow-hidden sm:flex">
-          {COURSES.map((item) => (
-            <div
-              style={{
-                transform: `translateX(-${activeitem * 370}px)`,
-                transitionDuration: "1s",
-              }}
-              className="min-w-[352px]   bg-[#FFF] rounded-[8px] relative "
-            >
-              <div className="w-full">
-                <img className="w-full rounded-t-[8px]" src={item.img} />
-              </div>
-              <div className="relative flex flex-col gap-5 p-4">
-                <h1 className=" text-[20px] ">{item.heading}</h1>
-                <p className=" text-[14px] ">{item.text}</p>
-                <button
-                  onClick={() => {
-                    setActive(true);
-                    setitem(item?.link);
-                  }}
-                  className="  border-[#4F46E5] border-2 w-[160px] h-[50px] rounded-[8px]"
-                >
-                  download
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        )}
       </div>
       <CenterModal isOpen={active} onClose={() => setActive(false)}>
         <CourseModal close={() => setActive(false)} />
