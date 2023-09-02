@@ -5,9 +5,9 @@ import wrkimg from "../../../images/courses/wrksimg.png";
 
 function Howitworks() {
   return (
-    <div className="sm:px-20 px-4 py-4 sm:py-10">
-      <div className="flex sm:flex-row flex-col mt-10 gap-0 sm:gap-10">
-        <div className="flex-1 mt-16 hidden sm:block">
+    <div className="px-4 py-4 sm:px-20 sm:py-10">
+      <div className="flex flex-col gap-0 mt-10 sm:flex-row sm:gap-10">
+        <div className="flex-1 hidden mt-16 sm:block">
           <img
             src={wrkimg}
             className="h-[344px] sm:h-[540px] object-cover mt-8 "
@@ -30,14 +30,14 @@ function Howitworks() {
             </div>
           ))}
         </div>
-        <div className="flex-1 mt-16 block sm:hiden">
+        <div className="flex-1 block mt-16 sm:hidden">
           <img
             src={wrkimg}
             className="h-[344px] sm:h-[540px] object-cover mt-8 "
           />
         </div>
       </div>
-      <div className="text-center mt-12">
+      <div className="mt-12 text-center">
         <h1 className="text-[32px] sm:text-[50px]">Who Should Enroll?</h1>
         <p className="text-[18px] sm:text-[20px]">
           Product management is a multifaceted role that involves various skills

@@ -6,6 +6,12 @@ import crs3 from "../images/courses/crs3.png";
 import crs4 from "../images/courses/crs4.png";
 import crs5 from "../images/courses/crs5.png";
 import crs6 from "../images/courses/crs6.png";
+import crs7 from "../images/courses/crs7.png";
+import crs8 from "../images/courses/crs8.png";
+import crs9 from "../images/courses/crs9.png";
+import crs10 from "../images/courses/crs10.png";
+import crs11 from "../images/courses/crs11.png";
+import crs12 from "../images/courses/crs12.png";
 import wrk1 from "../images/courses/wrk1.png";
 import wrk2 from "../images/courses/wrk2.png";
 import wrk3 from "../images/courses/wrk3.png";
@@ -90,7 +96,7 @@ export const HOWITWORKSDATA: CICDDATA[] = [
   },
 ];
 
-export const COURSES: COURSESData[] = [
+export const COURSES: COURSESData[] | never = [
   {
     id: 1,
     img: crs1,
@@ -112,19 +118,56 @@ export const COURSES: COURSESData[] = [
   {
     id: 4,
     img: crs4,
-    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
-    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+    heading: "DIGITAL MARKETING FOR PRODUCT MANAGEMENT",
+    text: "Explore the concept of digital marketing and its significance, understand how digital marketing complements product management, digital marketing channels, social media marketing, content marketing, influencer marketing, E-commerce strategies, etc.",
   },
   {
     id: 5,
     img: crs5,
-    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
-    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+    heading: "DATA ANALYSIS FOR PRODUCT MANAGEMENT",
+    text: "Data Fundamentals, Data collection and measurement, excel for beginners, data visualization, descriptive analytics, exploratory data analysis, user behavior analysis, A/B testing and experimentation, etc,",
   },
   {
     id: 6,
     img: crs6,
-    heading: "UNDERSTANDING BUSINESS AS A PRODUCT MANAGER",
-    text: "This course covers business fundamentals, business models, revenue generation, profit and loss analysis, profit generation, market analysis, market segmentation and targeting, competitive analysis, and lots more!",
+    heading: "UI/UX DESIGN FOR PRODUCT MANAGEMENT",
+    text: "User-centered design principles, user research and persona development, information architecture, wireframing and prototyping, visual design principles, interaction design, responsive design, usability testing, accessibility design, and lots more.",
+  },
+  {
+    id: 7,
+    img: crs7,
+    heading: "PRODUCT MANAGEMENT WORK TOOLS",
+    text: "Project Management Tools, Collaboration Platforms, Analytics Tools, Prototyping and Design Tools, User Feedback and Testing Platforms, Product Roadmap Tools, Version Control and Documentation, Customer Relationship Management (CRM) Systems, etc.",
+  },
+  {
+    id: 8,
+    img: crs8,
+    heading: "SOFTWARE TESTING",
+    text: "Testing Fundamentals, Test Planning and Strategy, Test Case Design, Test Execution and Automation, Defect Management, Regression Testing, efforts, Performance Testing, Security Testing, etc.",
+  },
+  {
+    id: 9,
+    img: crs9,
+    heading: "CONTENT CREATION FOR PRODUCT MANAGEMENT",
+    text: "Audience Understanding, Content Formats, Writing Skills, Interactive Content, and Content Analytics and Iteration: Analyzing how users engage with your content and using insights to refine your content strategy.",
+  },
+  {
+    id: 10,
+    img: crs10,
+    heading: "UNDERSTANDING SOFTWARE DEVELOPMENT AS A PRODUCT MANAGER.",
+    text: "Software Development Methodologies, Design, Development, Testing, Deployment, Technical Fundamentals, Basic programming concepts, Technology stacks, Collaboration with Development Teams, Communication",
+  },
+  {
+    id: 11,
+    img: crs11,
+    heading:
+      "UNDERSTANDING ENGINEERING TECHNICALITIES AND THE LIFE CYCLE OF A PRODUCT",
+    text: "Product Life Cycle Phases, Conceptualization, Development, Testing and Validation, Manufacturing and Production, Launch and Deployment, etc.",
+  },
+  {
+    id: 12,
+    img: crs12,
+    heading: "ADVANCING YOUR CAREER AS A PRODUCT MANAGER",
+    text: "Personal Branding, Leadership and Cross-Functional Collaboration, Data-Driven Decision-Making, Managing Complex Projects, Managing Ambiguity, Demonstrating Results, Negotiation and Influence, Evolving Leadership, and Advanced Industry Knowledge",
   },
 ];
