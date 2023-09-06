@@ -507,4 +507,33 @@ input[type="checkbox"]:checked {
     background: url(./images/contactimg/halfimg.png) center;
     background-size: cover;
   }
+  .gradient {
+    background: linear-gradient(
+      to right,
+      black 10%,
+      #4f46e5 20%,
+      rgba(119, 119, 119, 0.2) 50%,
+      #4f46e5 80%,
+      black 90%
+    );
+  }
+  .gradient2 {
+    background: linear-gradient(
+      to right,
+      rgb(245, 243, 243) 5%,
+      rgb(212, 212, 212) 20%,
+      #4f46e5 25%,
+      rgb(90, 89, 89) 50%,
+      #4f46e5 75%,
+      rgb(219, 217, 217) 80%,
+      rgb(250, 247, 247) 95%
+    );
+  }
+  .shadowc {
+    box-shadow: 0px 2px 2px 0px rgba(38, 38, 38, 0.2);
+  }
+  .programbg {
+    background: url(./images/contactimg/halfimg.png) center;
+    background-size: cover;
+  }
 }

@@ -6,7 +6,7 @@ export interface button {
   image?: string;
   bg?: string;
   onclick: () => void;
-  hover?: boolean;
+  variant?: string;
 }
 export interface CICDDATA {
   id: number;

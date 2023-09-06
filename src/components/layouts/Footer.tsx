@@ -3,14 +3,15 @@ import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { BsFacebook } from "react-icons/bs";
 import cicd from "../../images/footerimg/CICD.png";
+import logobg from "../../images/navimg/logobg.png";
 
 function Footer() {
   return (
     <div className="  w-full relative py-10 px-5 sm:px-24 mt-8 sm:mt-20 mb-5 border-[#afb3ba] border-t-2">
-      <div className="w-full flex justify-between">
+      <div className="flex justify-between w-full">
         <img
-          src={cicd}
-          className="w-[60px] h-[20px] sm:h-[30px] sm:w-[100px]"
+          src={logobg}
+          className="w-[60px] h-[20px] sm:h-[38px] sm:w-[122px]"
         />
         <div className=" flex  gap-3 w-[130px] items-center justify-center  ">
           <AiOutlineTwitter className="w-[32px] h-[32px]" />
