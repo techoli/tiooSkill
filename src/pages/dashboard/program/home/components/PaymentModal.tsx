@@ -4,6 +4,7 @@ import { AiOutlineWarning } from "react-icons/ai";
 
 import { title } from "process";
 import { Button } from "../../../../../components/UI/Button";
+import { useNavigate } from "react-router-dom";
 
 // import pdffile from "/pass.pdf";
 
@@ -14,6 +15,7 @@ interface CourseModalProps {
   aliasname?: string;
   handleDelete?: any;
   setpurchased: () => void;
+  // purchased:()=>void
 }
 
 const PaymentModal: React.FC<CourseModalProps> = ({
@@ -29,7 +31,13 @@ const PaymentModal: React.FC<CourseModalProps> = ({
   const [loading, setloading] = useState(false);
   const [full, setFull] = useState(false);
   const [part, setpart] = useState(false);
+  const user = JSON.parse(localStorage.getItem("login") || "{}");
+
+  const nav = useNavigate();
   const doAction2 = () => {
+    user.paid = true;
+    localStorage.setItem("login", JSON.stringify(user));
+    nav("/dashboard");
     close();
     setpurchased();
   };

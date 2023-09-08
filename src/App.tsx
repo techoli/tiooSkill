@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import Landing from "./pages/landing/home";
@@ -16,6 +17,7 @@ import Emailconfirm from "./pages/auth/Emailconfirm";
 import Dashboard from "./pages/dashboard/program/home";
 import Program from "./pages/dashboard/program";
 import { useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +48,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
+
+      <ToastContainer className={"mx-auto text-white"} theme="colored" />
     </div>
   );
 }

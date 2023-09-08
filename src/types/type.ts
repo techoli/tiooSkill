@@ -22,3 +22,8 @@ export interface COURSESData {
   text: string;
   link?: string;
 }
+export interface navData {
+  id: number;
+  url: string;
+  text: string;
+}

@@ -1,4 +1,4 @@
-import { CICDDATA, COURSESData } from "../types/type";
+import { CICDDATA, COURSESData, navData } from "../types/type";
 import tick from "../images/choosecicdimg/mdi_shield-tick.png";
 import crs1 from "../images/courses/crs1.png";
 import crs2 from "../images/courses/crs2.png";
@@ -170,4 +170,10 @@ export const COURSES: COURSESData[] | never = [
     heading: "ADVANCING YOUR CAREER AS A PRODUCT MANAGER",
     text: "Personal Branding, Leadership and Cross-Functional Collaboration, Data-Driven Decision-Making, Managing Complex Projects, Managing Ambiguity, Demonstrating Results, Negotiation and Influence, Evolving Leadership, and Advanced Industry Knowledge",
   },
+];
+export const NAV_DATA: navData[] = [
+  { id: 1, url: "/", text: "Home" },
+  { id: 2, url: "/courses", text: "Courses" },
+  { id: 3, url: "/aboutus", text: "About Us" },
+  { id: 4, url: "/contact", text: "Contact" },
 ];

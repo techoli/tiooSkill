@@ -533,7 +533,7 @@ input[type="checkbox"]:checked {
     box-shadow: 0px 2px 2px 0px rgba(38, 38, 38, 0.2);
   }
   .programbg {
-    background: url(./images/contactimg/halfimg.png) center;
+    background: url(./images/authimg/programbg.png) center;
     background-size: cover;
   }
 }
