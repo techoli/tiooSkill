@@ -45,7 +45,7 @@ function Courses() {
               <div className="relative flex flex-col justify-between  p-4 h-[50%]">
                 <h1 className=" text-[18px] ">{item.heading}</h1>
                 {/* <p className=" text-[14px] ">{item.text}</p> */}
-                {gotten && (
+                {(gotten || user?.paid) && (
                   <button className="  border-[#4F46E5] border-[1px] w-[160px] h-[50px] rounded-[8px] text-[#4F46E5]">
                     View curriculum
                   </button>
