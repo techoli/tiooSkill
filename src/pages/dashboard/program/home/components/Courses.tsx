@@ -38,7 +38,7 @@ function Courses() {
         </div>
         <div className="grid grid-cols-[repeat(3,1fr)] gap-5">
           {COURSES.slice(0, loadmore).map((item) => (
-            <div className="min-w-[352px]   bg-[#FFF] rounded-[8px] relative mt-8 shadowc h-[319px]">
+            <div className="min-w-[352px] bg-[#FFF] rounded-[8px] relative mt-8 shadowc h-[319px]">
               <div className="w-full h-[50%]">
                 <img className="w-full rounded-t-[8px]" src={item.img} />
               </div>
