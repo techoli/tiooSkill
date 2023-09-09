@@ -13,8 +13,6 @@ function Courses() {
   const [loadmore, setloadmore] = useState(6);
 
   const doAction = () => {
-    // user.paid = true;
-    // localStorage.setItem("account", JSON.stringify(user));
     setActive(true);
   };
   // useEffect(() => {
