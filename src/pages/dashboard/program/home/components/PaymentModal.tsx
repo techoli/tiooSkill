@@ -6,8 +6,6 @@ import { title } from "process";
 import { Button } from "../../../../../components/UI/Button";
 import { useNavigate } from "react-router-dom";
 
-// import pdffile from "/pass.pdf";
-
 interface CourseModalProps {
   close: () => void;
   item?: any;

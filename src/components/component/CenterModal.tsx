@@ -35,7 +35,9 @@ const CenterModal: React.FC<CenterModalProps> = ({
         <div className="z-50 flex items-center justify-center ">
           <div
             className={`${
-              variant === `small` ? `w-[450px]` : `w-full sm:w-[660px]`
+              variant === `small`
+                ? `w-full sm:w-[450px]`
+                : `w-full sm:w-[660px]`
             } bg-white rounded-[6px] shadow  modal-content`}
           >
             {children}

@@ -7,6 +7,7 @@ export interface button {
   bg?: string;
   onclick: () => void;
   variant?: string;
+  show?: any;
 }
 export interface CICDDATA {
   id: number;
@@ -21,6 +22,7 @@ export interface COURSESData {
   heading: string;
   text: string;
   link?: string;
+  curriculum?: any;
 }
 export interface navData {
   id: number;

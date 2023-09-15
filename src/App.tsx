@@ -43,7 +43,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/verification" element={<Emailverification />} />
-          <Route path="/confirmation" element={<Emailconfirm />} />
+          <Route path="/confirmation/:id" element={<Emailconfirm />} />
           <Route path="/program" element={<Program />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>

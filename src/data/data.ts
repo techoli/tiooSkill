@@ -102,12 +102,45 @@ export const COURSES: COURSESData[] | never = [
     img: crs1,
     heading: "INTRODUCTION TO PRODUCT MANAGEMENT",
     text: "This course focuses on the fundamentals of Product management. You will learn who a product manager is, what project management is, the types if product management, responsibilities, its importance, and the 10 top skills for effective product management.",
+    curriculum: [
+      {
+        id: 1,
+        pointname: "Definition of Product Management:",
+        subpoints: [
+          "What is Product Management ?",
+          "Who is a Product Manager ?",
+          "Types of Product Management",
+          "Responsibilities of a Product Manager",
+          "Why is product management important?",
+          "Top 10 Skills for Effective Product Management",
+        ],
+      },
+    ],
   },
   {
     id: 2,
     img: crs2,
     heading: "PRODUCT MANAGEMENT OPERATIONS",
     text: "Explore the stages in every product’s life cycle, market understanding, product development process, user-Centered Design, product strategies, key metrics and measurement, with real world case studies and examples.",
+    curriculum: [
+      {
+        id: 1,
+        pointname: "Product Life Cycle:",
+        subpoints: [
+          "Stages of a product's life cycle (introduction, growth, maturity, decline).",
+          "Characteristics and goals of each product life cycle stage.",
+        ],
+      },
+      {
+        id: 2,
+        pointname: "Market Understanding",
+        subpoints: [
+          "Customer needs and pain points.",
+          "Market segmentation and targeting.",
+          "Competitive analysis and market trends.",
+        ],
+      },
+    ],
   },
   {
     id: 3,

@@ -5,7 +5,7 @@ interface DashLayoutprops {
 }
 
 const DashLayout: React.FC<DashLayoutprops> = ({ children }) => {
-  return <div className="px-20">{children}</div>;
+  return <div className="px-5 sm:px-20">{children}</div>;
 };
 
 export default DashLayout;

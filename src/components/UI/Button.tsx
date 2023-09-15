@@ -29,6 +29,7 @@ export const Button2: React.FC<button> = ({
   text1,
   onclick,
   variant = "default",
+  show,
 }) => {
   return (
     <div
