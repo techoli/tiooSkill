@@ -19,7 +19,9 @@ function Emailverification() {
       if (resend.status == 200) {
         alertActions.success("Email sent successfully");
       }
-    } catch (error) {}
+    } catch (error) {
+      alertActions.error("Something went wrong");
+    }
   };
 
   return (

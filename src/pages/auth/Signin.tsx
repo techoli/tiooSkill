@@ -41,9 +41,10 @@ function Signin() {
       if (login.status == 200) {
         alertActions.success("Login successful");
         logindet.token = login?.data?.data?.token;
+        console.log(login);
         localStorage.setItem(
           "account",
-          JSON.stringify({ email, token: login?.data?.data?.token })
+          JSON.stringify({ email, token: login?.data?.token })
         );
         nav("/program", { replace: true });
         setloading(false);
@@ -159,7 +160,10 @@ function Signin() {
           </p>
         </div>
         <div className="h-[40px] mt-4">
-          <Button2 text1="Sign In" onclick={signInacc} />
+          <Button2
+            text1={loading ? "Loading..." : "Sign In"}
+            onclick={signInacc}
+          />
         </div>
         <div className="flex items-center justify-center gap-3  mt-6 w-[80%] m-[auto]">
           <hr className="h-[1.5px] bg-[#87909E]  flex-1 " />

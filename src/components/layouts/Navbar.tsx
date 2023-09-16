@@ -18,7 +18,7 @@ function Navbar() {
   const [mobilenav, setMobilenav] = useState(false);
 
   const { pathname } = useLocation();
-  const user = JSON.parse(localStorage.getItem("login") || "{}");
+  // const user = JSON.parse(localStorage.getItem("login") || "{}");
   const user2 = JSON.parse(localStorage.getItem("account") || "{}");
 
   const nav = useNavigate();
@@ -27,7 +27,7 @@ function Navbar() {
     nav("/signin", { replace: true });
   };
   const doLogout = () => {
-    localStorage.removeItem("login");
+    localStorage.removeItem("account");
     alertActions.success("Logout successful");
     nav("/", { replace: true });
   };
@@ -53,13 +53,13 @@ function Navbar() {
       </div>
       <div className="items-center justify-between hidden w-full h-full mb-10 sm:flex">
         <img src={logobg} className="h-[38px] w-[122px]" />
-        {user?.email && user2.first_name ? (
+        {user2?.email ? (
           <div
             className="relative flex items-center gap-5 cursor-pointer "
             onClick={() => setshowlogout(!showlogout)}
           >
             <img src={profile} className="h-[48px] w-[48px]" />
-            <p className="text-[18px]">{user2?.first_name}</p>
+            <p className="text-[18px]">{user2?.email}</p>
 
             {showlogout && (
               <div className=" cursor-pointer absolute rounded-[5px] shadowc bg-[#FFF] w-full bottom-[-85px]">

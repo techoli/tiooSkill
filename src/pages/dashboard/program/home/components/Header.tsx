@@ -34,7 +34,7 @@ function Header() {
           </div>
         )}
         <div className="h-full">
-          <h1 className="text-[32px]">Welcome {user2?.first_name}</h1>
+          <h1 className="text-[32px]">Welcome {user2?.email}</h1>
           <p className="">
             Explore your product management courses, access each course
             curriculum, and start learning!
