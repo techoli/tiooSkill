@@ -10,7 +10,6 @@ function Emailconfirm() {
 
   const { id } = useParams();
   const nav = useNavigate();
-  const doChange = () => {};
   const doAction = () => {
     localStorage.removeItem("account");
     nav("/signin", { replace: true });

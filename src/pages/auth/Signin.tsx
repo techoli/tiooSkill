@@ -41,7 +41,10 @@ function Signin() {
       if (login.status == 200) {
         alertActions.success("Login successful");
         logindet.token = login?.data?.data?.token;
-        localStorage.setItem("account", JSON.stringify(logindet));
+        localStorage.setItem(
+          "account",
+          JSON.stringify({ email, token: login?.data?.data?.token })
+        );
         nav("/program", { replace: true });
         setloading(false);
       }
@@ -50,6 +53,8 @@ function Signin() {
         error?.response?.data?.message == "Username or Password don't match"
       ) {
         alertActions.error("Username or Password don't match");
+      } else {
+        alertActions.error("Something went wrong");
       }
       setloading(false);
     }

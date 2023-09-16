@@ -12,8 +12,8 @@ import { alertActions } from "../../components/component/alertActions";
 
 function Signup() {
   const user = JSON.parse(localStorage.getItem("account") || "{}");
-  const [fname, setfname] = useState(user?.first_name);
-  const [lname, setlname] = useState(user?.last_name);
+  const [fname, setfname] = useState(user?.fname);
+  const [lname, setlname] = useState(user?.lname);
   const [email, setemail] = useState(user?.email);
   const [pass, setpass] = useState("");
   const [cpass, setcpass] = useState("");
@@ -61,7 +61,10 @@ function Signup() {
       if (userSignup?.status == 200) {
         console.log(userSignup);
         alertActions.success(userSignup?.data?.message);
-        localStorage.setItem("account", JSON.stringify(userdata));
+        localStorage.setItem(
+          "account",
+          JSON.stringify({ fname, lname, email })
+        );
         nav("/verification", { replace: true });
       }
       // nav("/program", { replace: true });
@@ -69,6 +72,8 @@ function Signup() {
       console.log(error);
       if (error?.response?.data?.message == "Account Already Exist") {
         alertActions.error("Account Already Exist");
+      } else {
+        alertActions.error("Something went wrong");
       }
       setloading(false);
     }

@@ -18,6 +18,7 @@ import Dashboard from "./pages/dashboard/program/home";
 import Program from "./pages/dashboard/program";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+// import Payment from "./components/component/Payment";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ function App() {
           <Route path="/confirmation/:id" element={<Emailconfirm />} />
           <Route path="/program" element={<Program />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/payment" element={<Payment />} /> */}
         </Routes>
       </BrowserRouter>
 

@@ -5,6 +5,7 @@ import { AiOutlineWarning } from "react-icons/ai";
 import { title } from "process";
 import { Button } from "../../../../../components/UI/Button";
 import { useNavigate } from "react-router-dom";
+import { Payment } from "../../../../../components/component/Payment";
 
 interface CourseModalProps {
   close: () => void;
@@ -29,12 +30,13 @@ const PaymentModal: React.FC<CourseModalProps> = ({
   const [loading, setloading] = useState(false);
   const [full, setFull] = useState(false);
   const [part, setpart] = useState(false);
-  const user = JSON.parse(localStorage.getItem("login") || "{}");
+  const [vals, setvals] = useState(0);
+  // const user = JSON.parse(localStorage.getItem("login") || "{}");
 
   const nav = useNavigate();
   const doAction2 = () => {
-    user.paid = true;
-    localStorage.setItem("login", JSON.stringify(user));
+    // user.paid = true;
+    // localStorage.setItem("login", JSON.stringify(user));
     nav("/dashboard");
     close();
     setpurchased();
@@ -43,9 +45,11 @@ const PaymentModal: React.FC<CourseModalProps> = ({
     if (val == "full") {
       setFull(true);
       setpart(false);
+      setvals(15000);
     } else {
       setpart(true);
       setFull(false);
+      setvals(7500);
     }
   };
   const doAction = () => {
@@ -125,18 +129,14 @@ const PaymentModal: React.FC<CourseModalProps> = ({
         </div>
       </div>
       <div className=" mt-8 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
-        <div className="cursor-pointer h-[40px]">
-          <button
-            onClick={doAction2}
-            className={`rounded-[8px] w-full h-full ${
-              full || part
-                ? `bg-[#4F46E5] text-white`
-                : `bg-[#F4F4F5] text-[gray] cursor-not-allowed`
-            }`}
-          >
-            Make payment
-          </button>
-          {/* <Button text1="Make payment" onclick={doAction} /> */}
+        <div className="cursor-pointer h-[40px]" onClick={doAction2}>
+          <Payment
+            full={full}
+            part={part}
+            cname="Okoli"
+            email="emm@gmail.com"
+            amt={vals}
+          />
         </div>
       </div>
     </div>
