@@ -3,6 +3,7 @@ import phone from "../../../../images/contactimg/phone.png";
 import mail from "../../../../images/contactimg/mail-04.png";
 import chair from "../../../../images/contactimg/ph_office-chair.png";
 import Contact from "./Contact";
+import { BsWhatsapp } from "react-icons/bs";
 function Header() {
   return (
     <div className="relative h-[1292px] sm:h-[792px]">
@@ -17,20 +18,25 @@ function Header() {
           <p className="absolute top-1 text-[#87909E]">Email us</p>
           <img src={mail} />
           <a className="underline" href="mailto:aniekpenoudom@gmail.com">
-            aniekpenoudom@gmail.com
+            admin@joincicd.com
           </a>{" "}
         </div>
         <div className="flex mt-5 gap-3 bg-[#FFF] p-8 rounded-[8px] shadow-xl relative items-end">
-          <p className="absolute top-1 text-[#87909E]">Call us</p>
-          <img src={phone} />
-          <a className="underline" href="tel:+ 2347018481060">
+          <p className="absolute top-1 text-[#87909E]">Whatsapp us</p>
+          {/* <img src={phone} /> */}
+          <BsWhatsapp className="h-[32px] w-[32px] fill-[#949ca8]" />
+          <a
+            className="underline"
+            href="http://wa.me/+2347018481060"
+            target="_blank"
+          >
             + 234 701 848 1060
           </a>
         </div>
         <div className="flex mt-5 gap-3 bg-[#FFF] p-8 rounded-[8px] shadow-xl relative items-end">
           <p className="absolute top-1 text-[#87909E]">Address</p>
           <img src={chair} />
-          <p>3 Atabara Street, off cairo street</p>
+          <p>3 Atabara Street, off cairo street, Wuse Abuja.</p>
         </div>
       </div>
     </div>

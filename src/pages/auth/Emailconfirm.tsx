@@ -11,7 +11,6 @@ function Emailconfirm() {
   const { id } = useParams();
   const nav = useNavigate();
   const doAction = () => {
-    localStorage.removeItem("account");
     nav("/signin", { replace: true });
   };
   useEffect(() => {
@@ -21,6 +20,7 @@ function Emailconfirm() {
       try {
         const verify = await verifyEmail({ token: id });
         if (verify.status == 200) {
+          localStorage.removeItem("account");
           setloading(false);
         }
       } catch (error) {

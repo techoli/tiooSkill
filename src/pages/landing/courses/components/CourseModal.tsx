@@ -77,7 +77,7 @@ const CourseModal: React.FC<CourseModalProps> = ({
 
       <div className="p-[24px] w-full">
         <Button
-          text1={loading ? "Downloading..." : "Download"}
+          text1={loading ? "Downloading..." : "Send Email"}
           onclick={doAction}
         />
       </div>

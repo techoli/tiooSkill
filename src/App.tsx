@@ -34,8 +34,8 @@ function App() {
     <div>
       <BrowserRouter>
         <ScrollToTop />
-        <NoticeBanner />
-        <Cookie />
+        {/* <NoticeBanner /> */}
+        {/* <Cookie /> */}
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/courses" element={<Courses />} />

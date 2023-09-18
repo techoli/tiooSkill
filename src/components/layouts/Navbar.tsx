@@ -52,7 +52,11 @@ function Navbar() {
         <img src={mobilelogo} className="w-full" />
       </div>
       <div className="items-center justify-between hidden w-full h-full mb-10 sm:flex">
-        <img src={logobg} className="h-[38px] w-[122px]" />
+        <img
+          src={logobg}
+          className="h-[38px] w-[122px] cursor-pointer"
+          onClick={() => nav("/", { replace: true })}
+        />
         {user2?.email ? (
           <div
             className="relative flex items-center gap-5 cursor-pointer "

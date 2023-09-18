@@ -15,6 +15,7 @@ function Signup() {
   const [fname, setfname] = useState(user?.fname);
   const [lname, setlname] = useState(user?.lname);
   const [email, setemail] = useState(user?.email);
+  const [phone, setphone] = useState(user?.phone);
   const [pass, setpass] = useState("");
   const [cpass, setcpass] = useState("");
   const [showerr, setshowerr] = useState(false);
@@ -27,6 +28,7 @@ function Signup() {
     email: "",
     pass: "",
     cpass: "",
+    phone: "",
   });
 
   const nav = useNavigate();
@@ -37,7 +39,7 @@ function Signup() {
 
   const doSignup = async () => {
     setloading(true);
-    if (!email || !fname || !lname) {
+    if (!email || !fname || !lname || !phone) {
       alertActions.error("Please ensure all fields are correctly filled");
       setloading(false);
       return;
@@ -51,6 +53,7 @@ function Signup() {
       first_name: fname,
       last_name: lname,
       email: email,
+      phone: phone,
       password: pass,
     };
 
@@ -63,7 +66,7 @@ function Signup() {
         alertActions.success(userSignup?.data?.message);
         localStorage.setItem(
           "account",
-          JSON.stringify({ fname, lname, email })
+          JSON.stringify({ fname, lname, email, phone })
         );
         nav("/verification", { replace: true });
       }
@@ -106,6 +109,12 @@ function Signup() {
           break;
 
         case "lname":
+          if (!value) {
+            stateObj[name] = "Field is required";
+          }
+          break;
+
+        case "phone":
           if (!value) {
             stateObj[name] = "Field is required";
           }
@@ -210,6 +219,16 @@ function Signup() {
           />
           {errmess.email && (
             <p className="text-[red] text-[14px] ml-2">{errmess.email}</p>
+          )}
+          <Input
+            onblur={validateField}
+            label="Phone"
+            name="phone"
+            value={phone}
+            onchange={(e: any) => setphone(e.target.value)}
+          />
+          {errmess.email && (
+            <p className="text-[red] text-[14px] ml-2">{errmess.phone}</p>
           )}
           <div className="flex flex-col gap-5 sm:flex-row ">
             <div>

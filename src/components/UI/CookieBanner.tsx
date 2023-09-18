@@ -5,6 +5,7 @@ function Cookie() {
   const [showcook, setShowcook] = useState(false);
 
   useEffect(() => {
+    // localStorage.setItem("cookie", JSON.stringify({ cookie: true }));
     const timeout = setTimeout(() => {
       setShowcook(true);
     }, 5000);
