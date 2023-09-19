@@ -6,6 +6,7 @@ import im2 from "../../../../images/headerimg/bgim2.png";
 import im3 from "../../../../images/headerimg/bgim3.png";
 import im4 from "../../../../images/headerimg/bgim4.png";
 import { Link, useNavigate } from "react-router-dom";
+import NoticeBanner from "../../../../components/UI/NoticeBanner";
 
 function Header() {
   const nav = useNavigate();
@@ -31,6 +32,10 @@ function Header() {
         src={im4}
         className=" absolute right-[18px] sm:right-[167px] bottom-[2px] sm:bottom-[10px] z-[-1]"
       />
+      <div className="absolute left-0 w-full h-[80px] top-[60px]">
+        <NoticeBanner />
+      </div>
+
       <div className="w-full px-3 sm:px-10  bg-[#FFF] rounded-[15px] sm:rounded-[32px] py-10 mt-16 sm:mt-14">
         <div className="flex flex-col w-full gap-3 sm:flex-row">
           <div className="flex-1">

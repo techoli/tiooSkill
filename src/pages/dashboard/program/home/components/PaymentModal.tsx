@@ -129,7 +129,7 @@ const PaymentModal: React.FC<CourseModalProps> = ({
         </div>
       </div>
       <div className=" mt-8 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
-        <div className="cursor-pointer h-[40px]" onClick={doAction2}>
+        <div className="cursor-pointer h-[50px]" onClick={doAction2}>
           <Payment
             full={full}
             part={part}

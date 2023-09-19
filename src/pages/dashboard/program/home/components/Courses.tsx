@@ -6,7 +6,8 @@ import PaymentModal from "./PaymentModal";
 import CurriculumModal from "./CurriculumModal";
 
 function Courses() {
-  const user = JSON.parse(localStorage.getItem("login") || "{}");
+  const user = JSON.parse(localStorage.getItem("account") || "{}");
+  const paid = JSON.parse(localStorage.getItem("paid") || "{}");
 
   const [active, setActive] = useState(false);
   const [dataitem, setdataitem] = useState({});
@@ -15,6 +16,7 @@ function Courses() {
   const [gotten, setgotten] = useState(false);
   const [haspaid, sethaspaid] = useState(true);
   const [loadmore, setloadmore] = useState(6);
+  const [load, setload] = useState(true);
 
   const doAction = () => {
     setActive(true);
@@ -32,8 +34,8 @@ function Courses() {
           <p className="text-[18px]">Your Courses (12)</p>
           <div className="h-[45px]">
             <Button2
-              variant={!user?.paid ? "default" : "secondary"}
-              text1={!user?.paid ? "Make Payment" : "Start Learning"}
+              variant={!paid?.paid ? "default" : "secondary"}
+              text1={!paid?.paid ? "Make Payment" : "Start Learning"}
               onclick={() => {
                 setActive(true);
                 setActivetab(1);
@@ -53,40 +55,48 @@ function Courses() {
               <div className="relative flex flex-col justify-between  p-1 sm:p-4 h-[50%] ">
                 <h1 className=" sm:text-[18px] text-[14px] ">{item.heading}</h1>
                 {/* <p className=" text-[14px] ">{item.text}</p> */}
-                {(gotten || user?.paid) && (
-                  <button
-                    className="  border-[#4F46E5] border-[1px] w-[90%] sm:w-[160px] h-[50px] rounded-[8px] text-[#4F46E5]"
-                    onClick={() => {
-                      setActive(true);
-                      setActivetab(2);
-                      setdataitem(item);
-                      setcourseid(item.id);
-                    }}
-                  >
-                    View curriculum
-                  </button>
-                )}
+
+                <button
+                  className={` border-[#4F46E5] border-[1px] w-[90%] sm:w-[160px] h-[50px] rounded-[8px] cursor-not-allowed   ${
+                    paid?.paid
+                      ? `bg-[#FFF] text-[#4F46E5] cursor-pointer`
+                      : `bg-[#f5f3f3] border-none`
+                  }`}
+                  onClick={() => {
+                    setActive(true);
+                    setActivetab(2);
+                    setdataitem(item);
+                    setcourseid(item.id);
+                  }}
+                >
+                  View curriculum
+                </button>
               </div>
             </div>
           ))}
         </div>
         <div
           className={` flex flex-col sm:flex-row items-center justify-start w-full mt-8 gap-10 sm:gap-72 mb-7 ${
-            !user?.paid ? `justify-center` : `justify-start`
+            !paid?.paid ? `justify-center` : `justify-start`
           }`}
         >
-          {(gotten || user?.paid) && (
+          {(gotten || paid?.paid) && (
             <p className="underline text-[#4F46E5]">
               Download entire curriculum
             </p>
           )}
-          <div className="h-[40px]">
-            <Button2
-              onclick={() => setloadmore(12)}
-              text1="Load More"
-              variant="secondary"
-            />
-          </div>
+          {load && (
+            <div className="h-[40px]">
+              <Button2
+                onclick={() => {
+                  setloadmore(12);
+                  setload(!load);
+                }}
+                text1="Load More"
+                variant="secondary"
+              />
+            </div>
+          )}
         </div>
       </div>
       <CenterModal

@@ -14,8 +14,8 @@ const Contact = () => {
       </p>
       <Input label="Full Name" name="fullname" value="" onchange={doChange} />
       <Input label="Email" name="email" value="" onchange={doChange} />
-      <Input label="Message" name="message" value="" onchange={doChange} />
-      <Tesxtarea label="Phone" name="phone" value="" onchange={doChange} />
+      <Input label="Phone" name="phone" value="" onchange={doChange} />
+      <Tesxtarea label="Message" name="message" value="" onchange={doChange} />
       <div className="flex justify-end w-full mt-2">
         <div className="w-[200px]  ">
           <Button text1="Send" onclick={doAction} />

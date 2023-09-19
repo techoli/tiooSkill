@@ -4,6 +4,7 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import CenterModal from "../../../../components/component/CenterModal";
 import CourseModal from "./CourseModal";
 import arr from "../../../../images/courses/arrow-up.png";
+import NoticeBanner from "../../../../components/UI/NoticeBanner";
 
 function Header() {
   const [activeright, setActiveright] = useState(false);
@@ -60,6 +61,9 @@ function Header() {
   };
   return (
     <>
+      <div className=" left-0 w-full h-[60px] top-[60px] mt-20 mb-10">
+        <NoticeBanner />
+      </div>
       <div className="bg-[#E3E2FF] px-4 sm:px-20 py-20 relative  ">
         <AiOutlineRight
           onClick={() => toggleNav("r")}

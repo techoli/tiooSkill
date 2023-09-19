@@ -20,6 +20,7 @@ function Navbar() {
   const { pathname } = useLocation();
   // const user = JSON.parse(localStorage.getItem("login") || "{}");
   const user2 = JSON.parse(localStorage.getItem("account") || "{}");
+  const token = localStorage.getItem("token");
 
   const nav = useNavigate();
 
@@ -28,12 +29,13 @@ function Navbar() {
   };
   const doLogout = () => {
     localStorage.removeItem("account");
+    localStorage.removeItem("token");
     alertActions.success("Logout successful");
     nav("/", { replace: true });
   };
   const toogleProfile = () => {};
   return (
-    <div className=" px-[70px] w-full z-50 bg-[white] h-[70px] sm:h-[60px] fixed top-0  left-0  border-b-[2px]">
+    <div className=" px-[70px] w-full z-50 bg-[#f2f3f8] h-[70px] sm:h-[60px] fixed top-0  left-0  border-b-[2px]">
       <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px]">
         {mobilenav ? (
           <LiaTimesSolid
@@ -57,13 +59,16 @@ function Navbar() {
           className="h-[38px] w-[122px] cursor-pointer"
           onClick={() => nav("/", { replace: true })}
         />
-        {user2?.email ? (
+        {token ? (
           <div
             className="relative flex items-center gap-5 cursor-pointer "
             onClick={() => setshowlogout(!showlogout)}
           >
             <img src={profile} className="h-[48px] w-[48px]" />
-            <p className="text-[18px]">{user2?.email}</p>
+            <div className="flex flex-col justify-center">
+              <p className="text-[18px]">{user2?.first_name}</p>
+              <p className="text-[12px]">{user2?.email}</p>
+            </div>
 
             {showlogout && (
               <div className=" cursor-pointer absolute rounded-[5px] shadowc bg-[#FFF] w-full bottom-[-85px]">

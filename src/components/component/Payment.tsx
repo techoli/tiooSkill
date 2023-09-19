@@ -3,7 +3,10 @@ import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
 import log1 from "../../images/navimg/logobg.png";
 import log2 from "../../images/navimg/logomd.png";
 import log3 from "../../images/navimg/logosm.png";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import imm from "../../images/navimg/imm.png";
+const user = JSON.parse(localStorage.getItem("account") || "{}");
 
 interface payment {
   amt: number;
@@ -20,6 +23,8 @@ export const Payment: React.FC<payment> = ({
   full,
   part,
 }) => {
+  const nav = useNavigate();
+
   const config: any = {
     public_key: "FLWPUBK_TEST-3be9712248722ceefc75988f260aff50-X",
     tx_ref: Date.now(),
@@ -44,13 +49,18 @@ export const Payment: React.FC<payment> = ({
     text: "Make Payment",
     callback: (response: any) => {
       console.log(response);
+      //   user.paid = true;
+      localStorage.setItem("paid", JSON.stringify({ paid: true }));
+      window.location.reload();
+      nav("/dashboard");
+
       closePaymentModal(); // this will close the modal programmatically
     },
     onClose: () => {},
   };
 
   return (
-    <div className="App">
+    <div className="h-full">
       <FlutterWaveButton
         {...fwConfig}
         className={`rounded-[8px] w-full h-full ${

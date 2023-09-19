@@ -20,7 +20,7 @@ function Program() {
           <hr className=" h-[2px] gradient2" />
           <div className="w-full mt-10 ">
             <div
-              className=" cursor-pointer h-[170px] w-[200px] flex justify-center py-5 programbg rounded-[8px]"
+              className=" cursor-pointer h-[300px] w-[300px] px-5 flex justify-center programbg py-10 rounded-[8px] border border-gray-500"
               onClick={doAction}
             >
               <p className="text-[20px] text-center text-white underline">

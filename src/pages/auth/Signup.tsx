@@ -171,7 +171,8 @@ function Signup() {
       <img src={abs3} className="absolute bottom-0 left-0 hidden sm:block" />
       <div className="flex-1 hidden sm:block">
         <h1 className="text-[56px] text-white mt-20">
-          Accelerate Your Product Management Growth with CICD
+          4th quarter cohort begins from 9th October to December sign up now and
+          get started
         </h1>
       </div>
       <div className="bg-[#FFF] flex flex-col flex-1 px-5 sm:px-10 py-5 gap-5 rounded-[8px]">
