@@ -30,6 +30,7 @@ function Navbar() {
   const doLogout = () => {
     localStorage.removeItem("account");
     localStorage.removeItem("token");
+    localStorage.removeItem("paid");
     alertActions.success("Logout successful");
     nav("/", { replace: true });
   };
