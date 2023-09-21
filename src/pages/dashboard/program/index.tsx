@@ -24,7 +24,7 @@ function Program() {
               onClick={doAction}
             >
               <p className="text-[20px] text-center text-white underline">
-                Consulate Product Management
+                Consumate Product Management
               </p>
             </div>
           </div>

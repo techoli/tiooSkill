@@ -36,7 +36,7 @@ function Navbar() {
   };
   const toogleProfile = () => {};
   return (
-    <div className=" px-[70px] w-full z-50 bg-[#f2f3f8] h-[70px] sm:h-[60px] fixed top-0  left-0  border-b-[2px]">
+    <div className=" px-[70px] w-full z-[40] bg-[#f2f3f8] h-[70px] sm:h-[60px] fixed top-0  left-0  border-b-[2px]">
       <div className="block sm:hidden absolute top-[20px] right-[10px] w-[32px] h-[32px]">
         {mobilenav ? (
           <LiaTimesSolid

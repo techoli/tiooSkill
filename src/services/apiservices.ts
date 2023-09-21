@@ -1,5 +1,12 @@
 import axios from "axios";
-import { SIGNUP_URL, VERIFY_URL, RESEND_URL, SIGNIN_URL } from "./url";
+import {
+  SIGNUP_URL,
+  VERIFY_URL,
+  RESEND_URL,
+  SIGNIN_URL,
+  CONTACT_URL,
+  SINGINTIOO_URL,
+} from "./url";
 
 // const handlePostAPI = async (
 //   url?: string,
@@ -37,4 +44,10 @@ export const resendEmail = async (vals: {}, config?: {}) => {
 };
 export const signIn = async (vals: {}, config?: {}) => {
   return handlePostAPI(SIGNIN_URL, vals, config);
+};
+export const contactUs = async (vals: {}, config?: {}) => {
+  return handlePostAPI(CONTACT_URL, vals, config);
+};
+export const signinTIoo = async (vals: any, config?: {}) => {
+  return handlePostAPI(SINGINTIOO_URL, vals, config);
 };

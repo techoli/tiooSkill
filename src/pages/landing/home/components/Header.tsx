@@ -15,22 +15,22 @@ function Header() {
     nav("/signup", { replace: true });
   };
   return (
-    <div className="relative px-4 py-5 sm:px-16 sm:py-20">
+    <div className="relative px-4 py-5 overflow-hidden sm:px-16 sm:py-20">
       <img
         src={im1}
-        className="absolute top-[-25px] sm:top-0 left-[-45px] sm:left-[-5px] z-[-1]"
+        className="absolute top-[-25px] sm:top-0 left-[-45px] sm:left-[-5px] z-[-1] "
       />
       <img
         src={im2}
-        className="absolute top-[-190px] sm:top-0 right-[-190px] sm:right-0 z-[-1]"
+        className="absolute top-[-190px] sm:top-0 right-[-190px] sm:right-0 z-[-1] "
       />
       <img
         src={im3}
-        className="sm:h-[476px] h-[149px] sm:w-[600px] w-[208px] absolute sm:bottom-[-230px] bottom-[-30px] left-[-90px] sm:left-[-290px] z-[-1]"
+        className="sm:h-[476px] h-[149px] sm:w-[600px] w-[208px] absolute sm:bottom-[-230px] bottom-[-30px] left-[-90px] sm:left-[-290px] z-[-1] "
       />
       <img
         src={im4}
-        className=" absolute right-[18px] sm:right-[167px] bottom-[2px] sm:bottom-[10px] z-[-1]"
+        className=" absolute right-[18px] sm:right-[167px] bottom-[2px] sm:bottom-[10px] z-[-1] "
       />
       <div className="absolute left-0 w-full h-[80px] top-[60px]">
         <NoticeBanner />

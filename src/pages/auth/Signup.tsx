@@ -223,7 +223,7 @@ function Signup() {
           )}
           <Input
             onblur={validateField}
-            label="Phone"
+            label="Whatsapp Number"
             name="phone"
             value={phone}
             onchange={(e: any) => setphone(e.target.value)}

@@ -19,12 +19,12 @@ function NoticeBanner() {
         4th quarter cohort begins from 9th October to December sign up now and
         get started{" "}
       </p>
-      <div
+      {/* <div
         className="absolute cursor-pointer right-[10px] sm:right-[70px] "
         onClick={doAction}
       >
         <IoMdClose className="text-[22px] text-[#545454]" />
-      </div>
+      </div> */}
     </div>
   );
 }

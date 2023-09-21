@@ -51,10 +51,13 @@ export const Payment: React.FC<payment> = ({
       console.log(response);
       //   user.paid = true;
       localStorage.setItem("paid", JSON.stringify({ paid: true }));
-      window.location.reload();
+      // window.location.reload();
+      window.location.href = "/dashboard";
       nav("/dashboard");
 
-      closePaymentModal(); // this will close the modal programmatically
+      setTimeout(() => {
+        closePaymentModal(); // this will close the modal programmatically
+      }, 2000);
     },
     onClose: () => {},
   };

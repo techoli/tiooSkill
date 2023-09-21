@@ -6,6 +6,7 @@ import { title } from "process";
 import { Button } from "../../../../../components/UI/Button";
 import { useNavigate } from "react-router-dom";
 import { Payment } from "../../../../../components/component/Payment";
+import { Input } from "../../../../../components/UI/Input";
 
 interface CourseModalProps {
   close: () => void;
@@ -31,7 +32,7 @@ const PaymentModal: React.FC<CourseModalProps> = ({
   const [full, setFull] = useState(false);
   const [part, setpart] = useState(false);
   const [vals, setvals] = useState(0);
-  // const user = JSON.parse(localStorage.getItem("login") || "{}");
+  const user = JSON.parse(localStorage.getItem("account") || "{}");
 
   const nav = useNavigate();
   const doAction2 = () => {
@@ -84,7 +85,7 @@ const PaymentModal: React.FC<CourseModalProps> = ({
           Make your payment now and get started
         </p>
         <p className="text-[#4F46E5] text-[24px]">N15,000</p>
-        <p className="text-[24px] mt-10 mb-2">How do you want to pay?</p>
+        <p className="text-[24px] mt-5 mb-2">How do you want to pay?</p>
         <div>
           <div
             className="flex gap-2 mb-5 cursor-pointer"
@@ -126,15 +127,28 @@ const PaymentModal: React.FC<CourseModalProps> = ({
               </p>
             </div>
           </div>
+          <p className="mt-8">Apply coupon</p>
+          <div className="relative flex items-center  h-[50px] ">
+            <input
+              name=""
+              value=""
+              placeholder="Enter coupon code"
+              onChange={doAction}
+              className="border-[#c7ced8] border-2   rounded-l-[8px] h-full p-3 w-[80%]"
+            />
+            <button className="bg-[#4F46E5]   relative bottom-0 h-full rounded-r-[8px] w-[20%] text-white">
+              Apply
+            </button>
+          </div>
         </div>
       </div>
-      <div className=" mt-8 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
+      <div className=" mt-5 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
         <div className="cursor-pointer h-[50px]" onClick={doAction2}>
           <Payment
             full={full}
             part={part}
-            cname="Okoli"
-            email="emm@gmail.com"
+            cname={user.last_name + " " + user.first_name}
+            email={user.email}
             amt={vals}
           />
         </div>

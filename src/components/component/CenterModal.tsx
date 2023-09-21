@@ -22,7 +22,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
 
   return (
     <>
-      <div className="flex justify-center mt-7 backdrop">
+      <div className="z-50 flex justify-center mt-4 backdrop">
         <div
           className="backdrop"
           style={{
@@ -36,7 +36,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
           <div
             className={`${
               variant === `small`
-                ? `w-full sm:w-[450px]`
+                ? `w-full sm:w-[450px] max-h-full`
                 : `w-full sm:w-[660px]`
             } bg-white rounded-[6px] shadow  modal-content`}
           >

@@ -32,16 +32,18 @@ function Courses() {
       <div className="mt-10 ww-full">
         <div className="flex justify-between">
           <p className="text-[18px]">Your Courses (12)</p>
-          <div className="h-[45px]">
-            <Button2
-              variant={!paid?.paid ? "default" : "secondary"}
-              text1={!paid?.paid ? "Make Payment" : "Start Learning"}
-              onclick={() => {
-                setActive(true);
-                setActivetab(1);
-              }}
-            />
-          </div>
+          {!paid?.paid && (
+            <div className="h-[45px]">
+              <Button2
+                variant={!paid?.paid ? "default" : "secondary"}
+                text1={!paid?.paid ? "Make Payment" : "Start Learning"}
+                onclick={() => {
+                  setActive(true);
+                  setActivetab(1);
+                }}
+              />
+            </div>
+          )}
         </div>
         <div className="grid grid-cols-[repeat(2,1fr)] sm:grid-cols-[repeat(3,1fr)] gap-5">
           {COURSES.slice(0, loadmore).map((item) => (

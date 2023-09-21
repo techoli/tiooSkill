@@ -74,7 +74,7 @@ export const Tesxtarea: React.FC<input> = ({
   return (
     <div className="mt-3 ">
       <label className="">{label}</label>
-      <input
+      <textarea
         value={value}
         onChange={onchange}
         name={name}
