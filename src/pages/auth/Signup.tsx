@@ -288,7 +288,7 @@ function Signup() {
             onclick={doSignup}
           />
         </div>
-        <div className="flex items-center justify-center gap-3 mt-6 w-[80%] m-[auto]">
+        {/* <div className="flex items-center justify-center gap-3 mt-6 w-[80%] m-[auto]">
           <hr className="h-[1.5px] bg-[#87909E]  flex-1 " />
           <p className="text-[14px] sm:text-[18px] flex-2 text-center">
             Or sign up with
@@ -302,7 +302,7 @@ function Signup() {
             variant="n"
             image={img}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
