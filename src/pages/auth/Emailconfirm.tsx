@@ -20,7 +20,7 @@ function Emailconfirm() {
       try {
         const verify = await verifyEmail({ token: id });
         if (verify.status == 200) {
-          localStorage.removeItem("account");
+          localStorage.removeItem("signaccount");
           setloading(false);
         }
       } catch (error) {

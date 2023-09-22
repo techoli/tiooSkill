@@ -10,7 +10,7 @@ function NoticeBanner() {
 
   return (
     <div
-      className={` items-center justify-center flex px-5 sm:px-36 py-5 z-50  w-full h-[50px] sm:h-full bg-[#FFF] top-[69px] gap-5 ${
+      className={` left-0 items-center justify-center  flex px-5 sm:px-36 py-5 z-50  w-full h-[50px] sm:h-full bg-[#FFF] top-[60px] gap-5 ${
         !shownotice && `hidden`
       }`}
     >

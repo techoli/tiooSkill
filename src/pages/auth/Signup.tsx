@@ -11,7 +11,7 @@ import { signUp, verifyEmail } from "../../services/apiservices";
 import { alertActions } from "../../components/component/alertActions";
 
 function Signup() {
-  const user = JSON.parse(localStorage.getItem("account") || "{}");
+  const user = JSON.parse(localStorage.getItem("signaccount") || "{}");
   const [fname, setfname] = useState(user?.fname);
   const [lname, setlname] = useState(user?.lname);
   const [email, setemail] = useState(user?.email);
@@ -65,7 +65,7 @@ function Signup() {
         console.log(userSignup);
         alertActions.success(userSignup?.data?.message);
         localStorage.setItem(
-          "account",
+          "signaccount",
           JSON.stringify({ fname, lname, email, phone })
         );
         nav("/verification", { replace: true });

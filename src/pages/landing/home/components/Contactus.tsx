@@ -32,7 +32,7 @@ function Contactus() {
         </div>
       </div>
       <div className=" sm:w-[450px] pl-0 sm:pl-20 ">
-        <div className="bg-[#FFF] h-[250px] sm:h-full p-5 relative ">
+        {/* <div className="bg-[#FFF] h-[250px] sm:h-full p-5 relative ">
           <h1 className="text-[18px] sm:text-[32px]">Request info</h1>
           <input
             placeholder="admin@joincicd.com"
@@ -43,7 +43,7 @@ function Contactus() {
             {" "}
             Send
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

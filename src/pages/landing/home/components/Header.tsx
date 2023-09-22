@@ -15,7 +15,7 @@ function Header() {
     nav("/signup", { replace: true });
   };
   return (
-    <div className="relative px-4 py-5 overflow-hidden sm:px-16 sm:py-20">
+    <div className="relative px-4 py-5 overflow-hidden sm:px-16 sm:py-16">
       <img
         src={im1}
         className="absolute top-[-25px] sm:top-0 left-[-45px] sm:left-[-5px] z-[-1] "
@@ -32,7 +32,8 @@ function Header() {
         src={im4}
         className=" absolute right-[18px] sm:right-[167px] bottom-[2px] sm:bottom-[10px] z-[-1] "
       />
-      <div className="absolute left-0 w-full h-[80px] top-[60px]">
+      <div className="absolute left-0 w-full h-[80px] top-[60px]"></div>
+      <div className="h-[70px] fixed w-full left-0 top-[60px] z-[20]">
         <NoticeBanner />
       </div>
 
