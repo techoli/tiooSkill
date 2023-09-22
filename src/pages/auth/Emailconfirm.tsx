@@ -7,6 +7,7 @@ import { verifyEmail } from "../../services/apiservices";
 function Emailconfirm() {
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState(false);
+  const [errormsg, seterrormsg] = useState("Something went wrong");
 
   const { id } = useParams();
   const nav = useNavigate();
@@ -23,9 +24,12 @@ function Emailconfirm() {
           localStorage.removeItem("signaccount");
           setloading(false);
         }
-      } catch (error) {
+      } catch (error: any) {
         setloading(false);
         seterror(true);
+        if (error?.response?.data?.message == "Account Already Verified") {
+          seterrormsg("Account Already Verified");
+        }
       }
     };
     confirm();
@@ -35,7 +39,7 @@ function Emailconfirm() {
     <div className="w-full h-[100vh] bg-[#322D92] flex justify-center items-center ">
       {error && !loading ? (
         <div className=" items-center  flex gap-5 flex-col bg-[#FFF] w-[515px] sm:h-[275px] h-full rounded-[8px] px-5 sm:px-20 py-20 sm:py-14 ">
-          <h1 className="text-[24px] ">Something went wrong 😞</h1>
+          <h1 className="text-[24px] ">{errormsg} </h1>
         </div>
       ) : loading ? (
         <div className=" items-center  flex gap-5 flex-col bg-[#FFF] w-[515px] sm:h-[275px] h-full rounded-[8px] px-5 sm:px-20 py-20 sm:py-14 ">

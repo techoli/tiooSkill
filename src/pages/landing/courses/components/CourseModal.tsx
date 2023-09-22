@@ -5,6 +5,8 @@ import { AiOutlineWarning } from "react-icons/ai";
 import { title } from "process";
 import { Button } from "../../../../components/UI/Button";
 import { Input } from "../../../../components/UI/Input";
+import { sendCourseoutline } from "../../../../services/apiservices";
+import { alertActions } from "../../../../components/component/alertActions";
 // import pdffile from "/pass.pdf";
 
 interface CourseModalProps {
@@ -25,7 +27,30 @@ const CourseModal: React.FC<CourseModalProps> = ({
   const [sdescription, setsdescription] = useState("");
   const [naming, setnaming] = useState("");
   const [loading, setloading] = useState(false);
+  const [fname, setfname] = useState("");
+  const [lname, setlname] = useState("");
+  const [email, setemail] = useState("");
+  const [phone, setphone] = useState("");
   const doChange = () => {};
+  const doSendmail = async () => {
+    setloading(true);
+    const mailObj = {
+      first_name: fname,
+      last_name: lname,
+      phone: phone,
+      email: email,
+    };
+    try {
+      const outline = await sendCourseoutline(mailObj);
+      if (outline.status == 200) {
+        alertActions.success("Mail sent successfull, please check your mail");
+        setloading(false);
+        close();
+      }
+    } catch (error) {
+      setloading(false);
+    }
+  };
   const doAction = () => {
     setloading(true);
     console.log("first");
@@ -57,28 +82,33 @@ const CourseModal: React.FC<CourseModalProps> = ({
         <Input
           label="First Name"
           name="firstname"
-          value=""
-          onchange={doChange}
+          value={fname}
+          onchange={(e) => setfname(e.target.value)}
         />
         <Input
           label="Last Name"
-          name="firstname"
-          value=""
-          onchange={doChange}
+          name="lastname"
+          value={lname}
+          onchange={(e) => setlname(e.target.value)}
         />
-        <Input label="Email" name="firstname" value="" onchange={doChange} />
+        <Input
+          label="Email"
+          name="email"
+          value={email}
+          onchange={(e) => setemail(e.target.value)}
+        />
         <Input
           label="Whatsapp Number"
-          name="firstname"
-          value=""
-          onchange={doChange}
+          name="phone"
+          value={phone}
+          onchange={(e) => setphone(e.target.value)}
         />
       </div>
 
       <div className="p-[24px] w-full">
         <Button
-          text1={loading ? "Downloading..." : "Send Email"}
-          onclick={doAction}
+          text1={loading ? "Sending..." : "Send Email"}
+          onclick={doSendmail}
         />
       </div>
     </div>

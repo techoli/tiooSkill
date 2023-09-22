@@ -6,6 +6,7 @@ import {
   SIGNIN_URL,
   CONTACT_URL,
   SINGINTIOO_URL,
+  COURSEOUTLINE_URL,
 } from "./url";
 
 // const handlePostAPI = async (
@@ -50,4 +51,7 @@ export const contactUs = async (vals: {}, config?: {}) => {
 };
 export const signinTIoo = async (vals: any, config?: {}) => {
   return handlePostAPI(SINGINTIOO_URL, vals, config);
+};
+export const sendCourseoutline = async (vals: {}, config?: {}) => {
+  return handlePostAPI(COURSEOUTLINE_URL, vals, config);
 };

@@ -5,3 +5,4 @@ export const RESEND_URL = `${BASE_URL}/account/verify/resend`;
 export const SIGNIN_URL = `${BASE_URL}/account/signin`;
 export const CONTACT_URL = `${BASE_URL}/contact/cicd/admin`;
 export const SINGINTIOO_URL = `${BASE_URL}/account/login/tioo`;
+export const COURSEOUTLINE_URL = `${BASE_URL}/account/courses/signup`;
