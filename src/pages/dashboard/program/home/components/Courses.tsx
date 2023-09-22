@@ -71,7 +71,7 @@ function Courses() {
                     setcourseid(item.id);
                   }}
                 >
-                  View curriculum
+                  View Lessons
                 </button>
               </div>
             </div>
