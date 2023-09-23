@@ -7,8 +7,10 @@ import abs2 from "../../images/authimg/abs2.png";
 import { doresetPassword, resetPassword } from "../../services/apiservices";
 import { alertActions } from "../../components/component/alertActions";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Newpass() {
+  const nav = useNavigate();
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
   const [cpass, setcpass] = useState("");
@@ -40,6 +42,8 @@ function Newpass() {
       });
       if (passReset.status == 200) {
         alertActions.success("Password reset successfully");
+        nav("/signin", { replace: true });
+
         setloading(false);
       }
     } catch (error: any) {
@@ -132,6 +136,14 @@ function Newpass() {
           {errmess.cpass && (
             <p className="text-[red] text-[14px] ml-2">{errmess.cpass}</p>
           )}
+          <p
+            className="mt-1 text-[#E83636] text-right cursor-pointer"
+            onClick={() => {
+              nav("/forgotpass", { replace: true });
+            }}
+          >
+            Resend mail?
+          </p>
         </div>
         <div className="h-[40px] mt-4">
           <Button2

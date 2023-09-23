@@ -42,6 +42,9 @@ function Emailconfirm() {
       {error && !loading ? (
         <div className=" items-center  flex gap-5 flex-col bg-[#FFF] w-[515px] sm:h-[275px] h-full rounded-[8px] px-5 sm:px-20 py-20 sm:py-14 ">
           <h1 className="text-[24px] ">{errormsg} </h1>
+          <div className="w-[200px]">
+            <Button text1="CONTINUE" onclick={doAction} />
+          </div>
         </div>
       ) : loading ? (
         <div className=" items-center  flex gap-5 flex-col bg-[#FFF] w-[515px] sm:h-[275px] h-full rounded-[8px] px-5 sm:px-20 py-20 sm:py-14 ">
