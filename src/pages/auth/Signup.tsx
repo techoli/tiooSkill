@@ -49,6 +49,11 @@ function Signup() {
       setloading(false);
       return;
     }
+    if (pass.length < 7) {
+      alertActions.error("Passwords is too short");
+      setloading(false);
+      return;
+    }
     const userdata = {
       first_name: fname,
       last_name: lname,
@@ -73,10 +78,10 @@ function Signup() {
       // nav("/program", { replace: true });
     } catch (error: any) {
       console.log(error);
-      if (error?.response?.data?.message == "Account Already Exist") {
-        alertActions.error("Account Already Exist");
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
       } else {
-        alertActions.error("Something went wrong");
+        alertActions.error(error?.response?.data?.message);
       }
       setloading(false);
     }

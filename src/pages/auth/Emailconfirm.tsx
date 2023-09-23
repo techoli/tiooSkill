@@ -27,8 +27,10 @@ function Emailconfirm() {
       } catch (error: any) {
         setloading(false);
         seterror(true);
-        if (error?.response?.data?.message == "Account Already Verified") {
-          seterrormsg("Account Already Verified");
+        if (error?.code == "ERR_NETWORK") {
+          seterrormsg(error?.message);
+        } else {
+          seterror(error?.response?.data?.message);
         }
       }
     };

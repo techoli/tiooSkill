@@ -2,13 +2,15 @@ import React from "react";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { MdOutlineVisibility } from "react-icons/md";
 interface input {
-  value: string;
-  onchange: (a: any) => void;
+  value?: string;
+  onchange?: (a: any) => void;
   onblur?: (a: any) => void;
   name: string;
   label: string;
   isShow?: any;
+  isShowdob?: any;
   handleshowPass?: () => void;
+  optVal?: any;
 }
 
 export const Input: React.FC<input> = ({
@@ -26,6 +28,50 @@ export const Input: React.FC<input> = ({
         onBlur={onblur}
         onChange={onchange}
         name={name}
+        className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px] p-3"
+      />
+    </div>
+  );
+};
+export const Selects: React.FC<input> = ({
+  onblur,
+  value,
+  onchange,
+  name,
+  label,
+}) => {
+  return (
+    <div className="mt-5">
+      <label className="">{label}</label>
+      <select
+        name={name}
+        className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px] px-3"
+      >
+        <option value="volvo">Nigeria</option>
+        <option value="saab">Liberia</option>
+        <option value="opel">USA</option>
+      </select>
+    </div>
+  );
+};
+export const DOB: React.FC<input> = ({
+  onblur,
+  value,
+  onchange,
+  name,
+  label,
+  isShowdob,
+}) => {
+  return (
+    <div className="mt-5">
+      <label className="">{label}</label>
+      <input
+        type={"date"}
+        value={value}
+        onBlur={onblur}
+        onChange={onchange}
+        name={name}
+        placeholder="ff"
         className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px] p-3"
       />
     </div>

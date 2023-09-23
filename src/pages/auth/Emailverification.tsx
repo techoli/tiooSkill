@@ -19,8 +19,12 @@ function Emailverification() {
       if (resend.status == 200) {
         alertActions.success("Email sent successfully");
       }
-    } catch (error) {
-      alertActions.error("Something went wrong");
+    } catch (error: any) {
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
     }
   };
 

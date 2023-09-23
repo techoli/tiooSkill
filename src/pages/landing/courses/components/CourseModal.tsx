@@ -47,8 +47,13 @@ const CourseModal: React.FC<CourseModalProps> = ({
         setloading(false);
         close();
       }
-    } catch (error) {
+    } catch (error: any) {
       setloading(false);
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
     }
   };
   const doAction = () => {

@@ -18,6 +18,9 @@ import Dashboard from "./pages/dashboard/program/home";
 import Program from "./pages/dashboard/program";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import KYC from "./pages/auth/KYC";
+import Forgotpass from "./pages/auth/Forgotpass";
+import Newpass from "./pages/auth/Newpass";
 // import Payment from "./components/component/Payment";
 
 function ScrollToTop() {
@@ -47,6 +50,9 @@ function App() {
           <Route path="/confirmation/:id" element={<Emailconfirm />} />
           <Route path="/program" element={<Program />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/kyc" element={<KYC />} />
+          <Route path="/forgotpass" element={<Forgotpass />} />
+          <Route path="/new-password/:id/:emailid" element={<Newpass />} />
           {/* <Route path="/payment" element={<Payment />} /> */}
         </Routes>
       </BrowserRouter>

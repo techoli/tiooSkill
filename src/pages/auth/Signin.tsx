@@ -50,12 +50,10 @@ function Signin() {
         setloading(false);
       }
     } catch (error: any) {
-      if (
-        error?.response?.data?.message == "Username or Password don't match"
-      ) {
-        alertActions.error("Username or Password don't match");
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
       } else {
-        alertActions.error("Something went wrong");
+        alertActions.error(error?.response?.data?.message);
       }
       setloading(false);
     }
@@ -156,7 +154,12 @@ function Signin() {
           {errmess.pass && (
             <p className="text-[red] text-[14px] ml-2">{errmess.pass}</p>
           )}
-          <p className="mt-1 text-[#E83636] text-right cursor-pointer">
+          <p
+            className="mt-1 text-[#E83636] text-right cursor-pointer"
+            onClick={() => {
+              nav("/forgotpass", { replace: true });
+            }}
+          >
             Forgot password?
           </p>
         </div>

@@ -67,8 +67,10 @@ function Navbar() {
           >
             <img src={profile} className="h-[48px] w-[48px]" />
             <div className="flex flex-col justify-center">
-              <p className="text-[18px]">{user2?.first_name}</p>
-              <p className="text-[12px]">{user2?.email}</p>
+              <p className="text-[18px]">
+                {user2?.last_name + " " + user2?.first_name}
+              </p>
+              {/* <p className="text-[12px]">{user2?.email}</p> */}
             </div>
 
             {showlogout && (

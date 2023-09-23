@@ -32,9 +32,13 @@ function Header() {
         console.log(signintioo);
         window.open(signintioo.data.message.payload.redirect);
       }
-    } catch (error) {
+    } catch (error: any) {
       setloading(false);
-      alertActions.error("Something went wrong");
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
     }
     // window.location.href = "https://www.w3schools.com";
   };

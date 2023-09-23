@@ -7,6 +7,8 @@ import {
   CONTACT_URL,
   SINGINTIOO_URL,
   COURSEOUTLINE_URL,
+  RESETPASS_URL,
+  DORESETPASS_URL,
 } from "./url";
 
 // const handlePostAPI = async (
@@ -54,4 +56,10 @@ export const signinTIoo = async (vals: any, config?: {}) => {
 };
 export const sendCourseoutline = async (vals: {}, config?: {}) => {
   return handlePostAPI(COURSEOUTLINE_URL, vals, config);
+};
+export const resetPassword = async (vals: {}, config?: {}) => {
+  return handlePostAPI(RESETPASS_URL, vals, config);
+};
+export const doresetPassword = async (vals: {}, config?: {}) => {
+  return handlePostAPI(DORESETPASS_URL, vals, config);
 };

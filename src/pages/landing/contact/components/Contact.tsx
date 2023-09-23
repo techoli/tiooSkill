@@ -27,9 +27,13 @@ const Contact = () => {
         setfname("");
         setmess("");
       }
-    } catch (error) {
-      alertActions.error("Something went wrong");
+    } catch (error: any) {
       setloading(false);
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
     }
   };
   return (
