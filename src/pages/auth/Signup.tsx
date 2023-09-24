@@ -196,7 +196,7 @@ function Signup() {
         <div>
           <Input
             onblur={validateField}
-            label="Full Name"
+            label="First Name"
             name="fname"
             value={fname}
             onchange={(e: any) => {

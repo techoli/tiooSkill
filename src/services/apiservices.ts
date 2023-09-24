@@ -9,6 +9,7 @@ import {
   COURSEOUTLINE_URL,
   RESETPASS_URL,
   DORESETPASS_URL,
+  KYC_URL,
 } from "./url";
 
 // const handlePostAPI = async (
@@ -62,4 +63,7 @@ export const resetPassword = async (vals: {}, config?: {}) => {
 };
 export const doresetPassword = async (vals: {}, config?: {}) => {
   return handlePostAPI(DORESETPASS_URL, vals, config);
+};
+export const doKyc = async (vals: {}, config?: {}) => {
+  return handlePostAPI(KYC_URL, vals, config);
 };

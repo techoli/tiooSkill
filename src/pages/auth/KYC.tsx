@@ -1,36 +1,173 @@
 import React, { useState } from "react";
+import { BiCamera } from "react-icons/bi";
 import { DOB, Input, Selects } from "../../components/UI/Input";
 import { Button2 } from "../../components/UI/Button";
+import PageLayout from "../../layouts/PageLayout";
+import profile from "../../images/authimg/profile.png";
+import logout from "../../images/authimg/logout.png";
+import circle from "../../images/authimg/circle.png";
+import earp from "../../images/authimg/earpiece.png";
+import sett from "../../images/authimg/setting.png";
+import arrl from "../../images/authimg/arrow-left.png";
+import def_prof from "../../images/authimg/def_prof.png";
+import { doKyc } from "../../services/apiservices";
+import { alertActions } from "../../components/component/alertActions";
+import { useNavigate } from "react-router-dom";
 
 function KYC() {
-  const [show, setshow] = useState(false);
-  return (
-    <div className="relative w-full px-20">
-      <div className="flex w-[90%] gap-10 m-auto">
-        <div className="bg-[#FFF] w-[30%] h-[390px]"></div>
-        <div className="bg-[#FFF] p-5 w-[50%]">
-          <p className="text-[24px]">KYC</p>
+  const nav = useNavigate();
 
-          <Selects name="b" label="Gender" />
-          <DOB
-            label="Date of birth"
-            onchange={() => {}}
-            name="d"
-            value=""
-            onblur={() => setshow(true)}
-          />
-          <Input name="addres" label="Address" />
-          <Selects name="b" label="Nationality" />
-          <Selects name="b" label="Qualification" />
-          <div className="flex justify-end w-full mt-4">
-            <div className="w-[100px] h-[40px]">
-              {" "}
-              <Button2 variant="default" text1="Save" onclick={() => {}} />
+  const user2 = JSON.parse(localStorage.getItem("account") || "{}");
+  const token = localStorage.getItem("token");
+  const [image, setImage] = useState(def_prof);
+  const [loading, setloading] = useState(false);
+  const [show, setshow] = useState(false);
+  const [gender, setgender] = useState("");
+  const [dob, setdob] = useState("");
+  const [address, setaddress] = useState("");
+  const [qualification, setqualification] = useState("");
+  const [nationality, setnationality] = useState("");
+  const onImageChange = (event: any) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+  const doSave = async () => {
+    setloading(true);
+    const kycObj = {
+      gender,
+      dob,
+      address,
+      nationality: nationality,
+      qualification: qualification,
+    };
+    var headert = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+
+    try {
+      const kyc = await doKyc(kycObj, headert);
+      if (kyc.status == 200) {
+        setloading(false);
+        alertActions.success("Account updated successfully");
+      }
+    } catch (error: any) {
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
+      setloading(false);
+    }
+  };
+  return (
+    <PageLayout needfooter={false}>
+      <div className="relative w-full px-20 pt-32">
+        <img
+          src={arrl}
+          className="absolute left-[200px] top-[70px] cursor-pointer"
+          onClick={() => {
+            nav("/dashboard", { replace: true });
+          }}
+        />
+        <div className="flex w-[90%] gap-10 m-auto  justify-center">
+          <div className="bg-[#FFF] w-[30%] h-[450px] rounded-[8px]">
+            <div className="h-[40%]  flex flex-col items-center p-5">
+              <div className="h-[100px] w-[100px] rounded-[100px] relative ">
+                <div className="cursor-pointer absolute bottom-1 right-[12px] w-[20px] h-[20px] bg-[purple] rounded-[20px] flex justify-center items-center">
+                  <label htmlFor="file" className="cursor-pointer">
+                    <BiCamera className="fill-[#FFF] cursor-pointer" />
+                  </label>
+                </div>
+                <input
+                  type="file"
+                  id="file"
+                  onChange={onImageChange}
+                  className="hidden"
+                />
+
+                <img src={image} className="w-full h-full rounded-[100px] " />
+
+                {/* <img alt="preview image" src={image} /> */}
+              </div>
+
+              <p className="text-[20px]">
+                {user2?.last_name + " " + user2?.first_name}
+              </p>
+              <p className="text-[14px]"> {user2?.email}</p>
+            </div>
+            <div className="h-[60%]  ">
+              <div className="w-full h-[50px] gap-3 flex px-7 items-center cursor-pointer border-[] border-t-2">
+                <img src={earp} />
+                <p className="text-[18px]">KYC</p>
+              </div>
+              <div className="w-full h-[50px] gap-3  flex px-7  items-center cursor-pointer border-[] border-t-2">
+                <img src={sett} />
+                <p className="text-[18px]">Account settings</p>
+              </div>
+              <div className="w-full h-[50px] gap-3  flex px-7  items-center cursor-pointer border-[] border-t-2">
+                <img src={circle} />
+                <p className="text-[18px]">Help</p>
+              </div>
+              <div className="w-full h-[50px] gap-3  flex px-7  items-center cursor-pointer border-[] border-t-2">
+                <img src={logout} />
+                <p className="text-[18px]">Log out</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#FFF] p-5 w-[50%] rounded-[8px]">
+            <p className="text-[24px]">KYC</p>
+
+            <Selects
+              name="gender"
+              value={gender}
+              label="Gender"
+              valueArr={["Male", "Female"]}
+              onchange={(e) => setgender(e.target.value)}
+            />
+            <DOB
+              label="Date of birth"
+              onchange={(e) => setdob(e.target.value)}
+              name="d"
+              value={dob}
+              onblur={() => setshow(true)}
+            />
+            <Input
+              name="addres"
+              label="Address"
+              value={address}
+              onchange={(e) => setaddress(e.target.value)}
+            />
+            <Selects
+              name="nationality"
+              label="Nationality"
+              value={nationality}
+              valueArr={["USA", "Nigeria", "Uganda", "Liberia"]}
+              onchange={(e) => setnationality(e.target.value)}
+            />
+            <Selects
+              name="qualification"
+              //   value={qualification}
+              label="Qualification"
+              valueArr={["BSc", "HND", "OND", "Certificate"]}
+              //   onchange={(e) => setqualification(e.target.value)}
+            />
+            <div className="flex justify-end w-full mt-4">
+              <div className="w-[100px] h-[40px]">
+                {" "}
+                <Button2
+                  variant="default"
+                  text1={loading ? "Saving..." : "Save"}
+                  onclick={doSave}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

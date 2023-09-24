@@ -8,3 +8,4 @@ export const SINGINTIOO_URL = `${BASE_URL}/account/login/tioo`;
 export const COURSEOUTLINE_URL = `${BASE_URL}/account/courses/signup`;
 export const RESETPASS_URL = `${BASE_URL}/account/resetpassword`;
 export const DORESETPASS_URL = `${BASE_URL}/account/verify_reset_password`;
+export const KYC_URL = `${BASE_URL}/account/kyc`;

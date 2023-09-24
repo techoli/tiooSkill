@@ -11,6 +11,7 @@ interface input {
   isShowdob?: any;
   handleshowPass?: () => void;
   optVal?: any;
+  valueArr?: string[];
 }
 
 export const Input: React.FC<input> = ({
@@ -39,7 +40,10 @@ export const Selects: React.FC<input> = ({
   onchange,
   name,
   label,
+  valueArr,
 }) => {
+  // console.log(valueArr);
+
   return (
     <div className="mt-5">
       <label className="">{label}</label>
@@ -47,9 +51,13 @@ export const Selects: React.FC<input> = ({
         name={name}
         className="w-full border-[#c7ced8] border-2   rounded-[8px] h-[40px] px-3"
       >
-        <option value="volvo">Nigeria</option>
+        {valueArr?.map((item: any) => (
+          <option value={item}>{item}</option>
+        ))}
+
+        {/* <option value="volvo">Nigeria</option>
         <option value="saab">Liberia</option>
-        <option value="opel">USA</option>
+        <option value="opel">USA</option> */}
       </select>
     </div>
   );

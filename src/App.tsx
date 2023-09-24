@@ -21,6 +21,8 @@ import { ToastContainer } from "react-toastify";
 import KYC from "./pages/auth/KYC";
 import Forgotpass from "./pages/auth/Forgotpass";
 import Newpass from "./pages/auth/Newpass";
+import AuthLayout from "./pages/auth/Authlayout";
+import UnauthLayout from "./pages/auth/Unauthlayout";
 // import Payment from "./components/component/Payment";
 
 function ScrollToTop() {
@@ -40,19 +42,111 @@ function App() {
         {/* <NoticeBanner /> */}
         {/* <Cookie /> */}
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/verification" element={<Emailverification />} />
-          <Route path="/confirmation/:id" element={<Emailconfirm />} />
-          <Route path="/program" element={<Program />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/kyc" element={<KYC />} />
-          <Route path="/forgotpass" element={<Forgotpass />} />
-          <Route path="/new-password/:id/:emailid" element={<Newpass />} />
+          <Route
+            path="/"
+            element={
+              <UnauthLayout>
+                <Landing />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/courses"
+            element={
+              <UnauthLayout>
+                <Courses />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/aboutus"
+            element={
+              <UnauthLayout>
+                <Aboutus />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <UnauthLayout>
+                <Contact />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <UnauthLayout>
+                <Signup />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <UnauthLayout>
+                <Signin />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/verification"
+            element={
+              <UnauthLayout>
+                <Emailverification />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/confirmation/:id"
+            element={
+              <UnauthLayout>
+                <Emailconfirm />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/forgotpass"
+            element={
+              <UnauthLayout>
+                <Forgotpass />
+              </UnauthLayout>
+            }
+          />
+          <Route
+            path="/new-password/:id/:emailid"
+            element={
+              <UnauthLayout>
+                <Newpass />
+              </UnauthLayout>
+            }
+          />
+
+          <Route
+            path="/kyc"
+            element={
+              <AuthLayout>
+                <KYC />
+              </AuthLayout>
+            }
+          />
+          <Route
+            path="/program"
+            element={
+              <AuthLayout>
+                <Program />
+              </AuthLayout>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <AuthLayout>
+                <Dashboard />
+              </AuthLayout>
+            }
+          />
           {/* <Route path="/payment" element={<Payment />} /> */}
         </Routes>
       </BrowserRouter>

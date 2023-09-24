@@ -68,14 +68,17 @@ function Navbar() {
             <img src={profile} className="h-[48px] w-[48px]" />
             <div className="flex flex-col justify-center">
               <p className="text-[18px]">
-                {user2?.last_name + " " + user2?.first_name}
+                {user2?.first_name + " " + user2?.last_name}
               </p>
               {/* <p className="text-[12px]">{user2?.email}</p> */}
             </div>
 
             {showlogout && (
               <div className=" cursor-pointer absolute rounded-[5px] shadowc bg-[#FFF] w-full bottom-[-85px]">
-                <div className="p-2" onClick={() => setshowlogout(!showlogout)}>
+                <div
+                  className="p-2"
+                  onClick={() => nav("/kyc", { replace: true })}
+                >
                   <p>KYC</p>
                 </div>
                 <hr className="h-[2px] bg-[#b6b3b3]" />
