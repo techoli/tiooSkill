@@ -7,9 +7,9 @@ import choose2 from "../../../../images/choosecicdimg/choose2.png";
 function ChooseCICD() {
   return (
     <div className="bg-[#0E096C] px-4 sm:px-24  text-[#FFFF] py-4 sm:py-14">
-      <div className="flex sm:flex-row flex-col gap-10">
+      <div className="flex flex-col gap-10 sm:flex-row">
         <div className="flex-1 mt-5">
-          <img src={choose1} className="h-full object-cover" />
+          <img src={choose1} className="object-cover h-full" />
         </div>
         <div className=" flex-1 text-[56px] relative ">
           <h1 className="text-[32px] sm:text-[48px] text-[#FFFF]">
@@ -44,7 +44,7 @@ function ChooseCICD() {
         </p>
       </div>
 
-      <div className="flex sm:flex-row flex-col mt-10 gap-10">
+      <div className="flex flex-col gap-10 mt-10 sm:flex-row">
         <div className=" flex-1 text-[56px] relative">
           {CICDdata2?.map((items) => (
             <div key={items.id} className=" border-[#87909E] border-b-2 mt-5">
@@ -54,7 +54,7 @@ function ChooseCICD() {
               <p className="text-[14px] sm:text-[16px] mb-5 text-[#FFFF]">
                 {items.text}
               </p>
-              <div className="w-full flex justify-center sm:justify-start gap-3 mb-5 text-white">
+              <div className="flex justify-center w-full gap-3 mb-5 text-white sm:justify-start">
                 {/* <p className="text-[30px]">&#8601;</p>
                  */}
                 <svg
@@ -72,7 +72,7 @@ function ChooseCICD() {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <Link to="/" className="underline">
+                <Link to="/signup" className="underline">
                   Learn More
                 </Link>
               </div>

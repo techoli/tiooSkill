@@ -30,7 +30,7 @@ function Emailconfirm() {
         if (error?.code == "ERR_NETWORK") {
           seterrormsg(error?.message);
         } else {
-          seterror(error?.response?.data?.message);
+          seterrormsg(error?.response?.data?.message);
         }
       }
     };

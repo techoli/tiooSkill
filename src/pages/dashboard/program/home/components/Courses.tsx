@@ -25,7 +25,17 @@ function Courses() {
   //   user.paid = false;
   //   localStorage.setItem("account", JSON.stringify(user));
   // }, []);
-
+  const doDownloadPDF = () => {
+    fetch("CICD COURSE OUTLINE.pdf").then((response) => {
+      response.blob().then((blob) => {
+        const fileURL = window.URL.createObjectURL(blob);
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "CICD COURSE OUTLINE.pdf";
+        alink.click();
+      });
+    });
+  };
   const doLoadmore = () => {};
   return (
     <>
@@ -83,7 +93,10 @@ function Courses() {
           }`}
         >
           {(gotten || paid?.paid) && (
-            <p className="underline text-[#4F46E5]">
+            <p
+              className="underline text-[#4F46E5] cursor-pointer"
+              onClick={doDownloadPDF}
+            >
               Download entire curriculum
             </p>
           )}

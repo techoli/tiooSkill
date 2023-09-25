@@ -3,8 +3,10 @@ import test from "../../../../images/stdloveimg/test.png";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { Button } from "../../../../components/UI/Button";
 import DummySlideBtn from "../../../../components/component/Dummyslidebtm";
+import { useNavigate } from "react-router-dom";
 
 function StudentLove() {
+  const nav = useNavigate();
   const [activeright, setActiveright] = useState(true);
   const [activeleft, setActiveleft] = useState(false);
   const [activeitem, setActiveitem] = useState(1);
@@ -31,7 +33,9 @@ function StudentLove() {
     }
   };
 
-  const doClick = () => {};
+  const doAction = () => {
+    nav("/signup", { replace: true });
+  };
   return (
     <div className="relative px-4 mt-8 sm:px-16 sm:mt-20">
       <h1 className="text-[24px] sm:text-[50px] text-[#4F46E5] text-center">
@@ -92,7 +96,7 @@ function StudentLove() {
         </p>
         <div className="w-[200px] m-[auto] mt-7">
           {" "}
-          <Button text1="Enroll Now" onclick={doClick} />
+          <Button text1="Enroll Now" onclick={doAction} />
         </div>
       </div>
     </div>
