@@ -14,6 +14,8 @@ function Newpass() {
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
   const [cpass, setcpass] = useState("");
+  const [show, setshow] = useState(false);
+  const [showpass, setshowpass] = useState(false);
   const [errmess, seterrmess] = useState({
     pass: "",
     cpass: "",
@@ -115,6 +117,8 @@ function Newpass() {
           <Inputpass
             name="pass"
             value={pass}
+            isShow={showpass}
+            handleshowPass={() => setshowpass(!showpass)}
             onchange={(e) => {
               setpass(e.target.value);
               validateField(e);
@@ -127,6 +131,8 @@ function Newpass() {
           <Inputpass
             name="cpass"
             value={cpass}
+            isShow={showpass}
+            handleshowPass={() => setshowpass(!showpass)}
             onchange={(e) => {
               setcpass(e.target.value);
               validateField(e);

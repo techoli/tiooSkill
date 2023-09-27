@@ -42,11 +42,11 @@ function Courses() {
       <div className="mt-10 ww-full">
         <div className="flex justify-between">
           <p className="text-[18px]">Your Courses (12)</p>
-          {!paid?.paid && (
+          {!user?.Subscription && (
             <div className="h-[45px]">
               <Button2
-                variant={!paid?.paid ? "default" : "secondary"}
-                text1={!paid?.paid ? "Make Payment" : "Start Learning"}
+                variant={user?.Subscription ? "default" : "secondary"}
+                text1={!user?.Subscription ? "Make Payment" : "Start Learning"}
                 onclick={() => {
                   setActive(true);
                   setActivetab(1);
@@ -70,7 +70,7 @@ function Courses() {
 
                 <button
                   className={` border-[#4F46E5] border-[1px] w-[90%] sm:w-[160px] h-[50px] rounded-[8px] cursor-not-allowed   ${
-                    paid?.paid
+                    user?.Subscription
                       ? `bg-[#FFF] text-[#4F46E5] cursor-pointer`
                       : `bg-[#f5f3f3] border-none`
                   }`}
@@ -89,10 +89,10 @@ function Courses() {
         </div>
         <div
           className={` flex flex-col sm:flex-row items-center justify-start w-full mt-8 gap-10 sm:gap-72 mb-7 ${
-            !paid?.paid ? `justify-center` : `justify-start`
+            !user?.Subscription ? `justify-center` : `justify-start`
           }`}
         >
-          {(gotten || paid?.paid) && (
+          {user?.Subscription && (
             <p
               className="underline text-[#4F46E5] cursor-pointer"
               onClick={doDownloadPDF}

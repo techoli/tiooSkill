@@ -7,6 +7,8 @@ import { Button } from "../../../../../components/UI/Button";
 import { useNavigate } from "react-router-dom";
 import { Payment } from "../../../../../components/component/Payment";
 import { Input } from "../../../../../components/UI/Input";
+import { getToken, validateCoupon } from "../../../../../services/apiservices";
+import { alertActions } from "../../../../../components/component/alertActions";
 
 interface CourseModalProps {
   close: () => void;
@@ -32,9 +34,51 @@ const PaymentModal: React.FC<CourseModalProps> = ({
   const [full, setFull] = useState(false);
   const [part, setpart] = useState(false);
   const [vals, setvals] = useState(0);
+  const [couponval, setcouponval] = useState("");
+  const [oldcouponval, setoldcouponval] = useState("");
+
+  const [paymentvals, setpaymentvals] = useState("₦15000");
   const user = JSON.parse(localStorage.getItem("account") || "{}");
 
   const nav = useNavigate();
+  const doApplycoupon = async () => {
+    setloading(true);
+    if (couponval == oldcouponval) {
+      alertActions.error("Coupon already used");
+      setloading(false);
+      return;
+    }
+    try {
+      const validate = await validateCoupon(couponval, getToken);
+      if (validate.status == 200) {
+        if (validate.data.data.status == "active") {
+          setpaymentvals(
+            `₦ ${
+              Number(paymentvals.slice(1)) -
+              Number(validate?.data?.data?.amount)
+            }`
+          );
+          setoldcouponval(couponval);
+          alertActions.success("Coupon applied successfully");
+        } else {
+          alertActions.error("Coupon inactive");
+        }
+        setloading(false);
+      }
+      console.log(validate.data.data.status);
+      console.log(couponval);
+    } catch (error: any) {
+      console.log(error);
+      setloading(false);
+      if (error?.code == "ERR_NETWORK") {
+        alertActions.error(error?.message);
+      } else {
+        alertActions.error(error?.response?.data?.message);
+      }
+      setloading(false);
+    }
+  };
+
   const doAction2 = () => {
     // user.paid = true;
     // localStorage.setItem("login", JSON.stringify(user));
@@ -53,23 +97,23 @@ const PaymentModal: React.FC<CourseModalProps> = ({
       setvals(7500);
     }
   };
-  const doAction = () => {
-    setloading(true);
-    console.log("first");
-    // Replace 'your_file_url' with the actual URL of the file you want to download.
-    const fileUrl = "./pass.pdf";
+  // const doAction = () => {
+  //   setloading(true);
+  //   console.log("first");
+  //   // Replace 'your_file_url' with the actual URL of the file you want to download.
+  //   const fileUrl = "./pass.pdf";
 
-    // Create an anchor element to trigger the download.
-    const link = document.createElement("a");
-    link.href = "./tioo.pdf";
+  //   // Create an anchor element to trigger the download.
+  //   const link = document.createElement("a");
+  //   link.href = "./tioo.pdf";
 
-    // Specify the download attribute and file name.
-    link.setAttribute("download", "tioo.pdf");
+  //   // Specify the download attribute and file name.
+  //   link.setAttribute("download", "tioo.pdf");
 
-    // Simulate a click event on the anchor element to start the download.
-    link.click();
-    setloading(false);
-  };
+  //   // Simulate a click event on the anchor element to start the download.
+  //   link.click();
+  //   setloading(false);
+  // };
   return (
     <div className="h-[324]">
       <div className="flex w-full items-center justify-between border-b-[1px] py-4 px-[24px]">
@@ -84,7 +128,7 @@ const PaymentModal: React.FC<CourseModalProps> = ({
         <p className="text-[#87909E] mb-3">
           Make your payment now and get started
         </p>
-        <p className="text-[#4F46E5] text-[24px]">N15,000</p>
+        <p className="text-[#4F46E5] text-[24px]">{paymentvals}</p>
         <p className="text-[24px] mt-5 mb-2">How do you want to pay?</p>
         <div>
           <div
@@ -130,26 +174,29 @@ const PaymentModal: React.FC<CourseModalProps> = ({
           <p className="mt-8">Apply coupon</p>
           <div className="relative flex items-center  h-[50px] ">
             <input
-              name=""
-              value=""
+              name="coupon"
+              value={couponval}
               placeholder="Enter coupon code"
-              onChange={doAction}
+              onChange={(e) => setcouponval(e.target.value)}
               className="border-[#c7ced8] border-2   rounded-l-[8px] h-full p-3 w-[80%]"
             />
-            <button className="bg-[#4F46E5]   relative bottom-0 h-full rounded-r-[8px] w-[20%] text-white">
-              Apply
+            <button
+              className="bg-[#4F46E5]   relative bottom-0 h-full rounded-r-[8px] w-[20%] text-white"
+              onClick={doApplycoupon}
+            >
+              {loading ? "Applying..." : "Apply"}
             </button>
           </div>
         </div>
       </div>
       <div className=" mt-5 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
-        <div className="cursor-pointer h-[50px]" onClick={doAction2}>
+        <div className="cursor-pointer h-[50px]">
           <Payment
             full={full}
             part={part}
             cname={user.last_name + " " + user.first_name}
             email={user.email}
-            amt={vals}
+            amt={Number(paymentvals.slice(1))}
           />
         </div>
       </div>

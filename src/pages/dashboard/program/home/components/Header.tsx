@@ -45,7 +45,7 @@ function Header() {
   return (
     <>
       <div className="flex flex-col justify-between py-3 mt-20 sm:flex-row">
-        {paid?.paid ? (
+        {user2?.Subscription ? (
           <div className="h-[45px] sm:hidden block">
             <Button2
               variant="default"
@@ -69,7 +69,7 @@ function Header() {
             curriculum, and start learning!
           </p>
         </div>
-        {paid?.paid ? (
+        {user2?.Subscription ? (
           <div className="h-[45px] sm:block hidden">
             {/* <a href="https://www.w3schools.com" target="_blank"> */}
             <Button2

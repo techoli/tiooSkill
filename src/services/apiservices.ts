@@ -10,6 +10,9 @@ import {
   RESETPASS_URL,
   DORESETPASS_URL,
   KYC_URL,
+  COUPON_URL,
+  SAVESUB_URL,
+  GETUSERBYID_URL,
 } from "./url";
 
 // const handlePostAPI = async (
@@ -35,6 +38,15 @@ const handlePostAPI = async (
   config?: {}
 ) => {
   return await axios.post(`${url}`, payload, config).then((res) => res);
+};
+const handlegetAPIbyid = async (url?: string, id?: any, config?: {}) => {
+  return await axios.get(`${url}/${id}`, config).then((res) => res);
+};
+
+export const getToken = {
+  headers: {
+    Authorization: "Bearer " + localStorage.getItem("token"),
+  },
 };
 
 export const signUp = async (vals: {}, config?: {}) => {
@@ -66,4 +78,13 @@ export const doresetPassword = async (vals: {}, config?: {}) => {
 };
 export const doKyc = async (vals: {}, config?: {}) => {
   return handlePostAPI(KYC_URL, vals, config);
+};
+export const validateCoupon = async (id: any, config?: {}) => {
+  return handlegetAPIbyid(COUPON_URL, id, config);
+};
+export const getuser = async (id: any, config?: {}) => {
+  return handlegetAPIbyid(GETUSERBYID_URL, id, config);
+};
+export const saveSub = async (vals: {}, config?: {}) => {
+  return handlePostAPI(SAVESUB_URL, vals, config);
 };

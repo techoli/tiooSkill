@@ -44,7 +44,7 @@ function Signin() {
         console.log(login);
         localStorage.setItem("token", login?.data?.token);
         const loginuser = login?.data?.user;
-        localStorage.setItem("paid", JSON.stringify({ paid: false }));
+        // localStorage.setItem("paid", JSON.stringify({ paid: false }));
         localStorage.setItem("account", JSON.stringify(loginuser));
         nav("/program", { replace: true });
         setloading(false);

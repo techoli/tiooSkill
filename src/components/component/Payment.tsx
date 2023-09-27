@@ -6,6 +6,9 @@ import log3 from "../../images/navimg/logosm.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import imm from "../../images/navimg/imm.png";
+import { alertActions } from "./alertActions";
+import { SAVESUB_URL } from "../../services/url";
+import { getToken, getuser, saveSub } from "../../services/apiservices";
 const user = JSON.parse(localStorage.getItem("account") || "{}");
 
 interface payment {
@@ -47,17 +50,33 @@ export const Payment: React.FC<payment> = ({
   const fwConfig = {
     ...config,
     text: "Make Payment",
-    callback: (response: any) => {
-      console.log(response);
+    callback: async (response: any) => {
       //   user.paid = true;
-      localStorage.setItem("paid", JSON.stringify({ paid: true }));
+      // localStorage.setItem("paid", JSON.stringify({ paid: true }));
       // window.location.reload();
       window.location.href = "/dashboard";
       nav("/dashboard");
 
+      try {
+        await saveSub(
+          {
+            amount: 15000,
+            status: "paid",
+          },
+          getToken
+        );
+        const resubmituser = await getuser(user.id, getToken);
+        console.log(resubmituser);
+        localStorage.setItem("account", JSON.stringify(resubmituser.data));
+      } catch (error) {
+        console.log(error);
+      }
+
       setTimeout(() => {
         closePaymentModal(); // this will close the modal programmatically
       }, 2000);
+
+      console.log(response);
     },
     onClose: () => {},
   };

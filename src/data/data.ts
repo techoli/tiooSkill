@@ -140,6 +140,16 @@ export const COURSES: COURSESData[] | never = [
           "Competitive analysis and market trends.",
         ],
       },
+      {
+        id: 3,
+        pointname: "Product Development Process",
+        subpoints: [
+          "Idea generation and validation.",
+          "Defining product requirements.",
+          "Prototyping and iteration.",
+          "Launch and post-launch activities.",
+        ],
+      },
     ],
   },
   {
