@@ -33,13 +33,15 @@ function KYC() {
     }
   };
   const doSave = async () => {
+    const mdob = dob.split("-");
+    const mdob2 = `${mdob[2]}/${mdob[1]}/${mdob[0]}`;
     setloading(true);
     const kycObj = {
-      gender,
-      dob,
-      address,
-      nationality: nationality,
-      qualification: qualification,
+      gender: gender.toLowerCase(),
+      dob: mdob2,
+      address: address.toLowerCase(),
+      nationality: nationality.toLowerCase(),
+      qualification: qualification.toLowerCase(),
     };
     var headert = {
       headers: {
@@ -130,7 +132,7 @@ function KYC() {
             <DOB
               label="Date of birth"
               onchange={(e) => setdob(e.target.value)}
-              name="d"
+              name="dob"
               value={dob}
               onblur={() => setshow(true)}
             />
@@ -149,10 +151,10 @@ function KYC() {
             />
             <Selects
               name="qualification"
-              //   value={qualification}
+              value={qualification}
               label="Qualification"
               valueArr={["BSc", "HND", "OND", "Certificate"]}
-              //   onchange={(e) => setqualification(e.target.value)}
+              onchange={(e) => setqualification(e.target.value)}
             />
             <div className="flex justify-end w-full mt-4">
               <div className="w-[100px] h-[40px]">
