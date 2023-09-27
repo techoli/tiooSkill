@@ -13,6 +13,7 @@ import def_prof from "../../images/authimg/def_prof.png";
 import { doKyc } from "../../services/apiservices";
 import { alertActions } from "../../components/component/alertActions";
 import { useNavigate } from "react-router-dom";
+import { doLogoutplatform } from "../../services/logout";
 
 function KYC() {
   const nav = useNavigate();
@@ -64,6 +65,14 @@ function KYC() {
       setloading(false);
     }
   };
+
+  const doLogout = () => {
+    localStorage.removeItem("account");
+    localStorage.removeItem("token");
+
+    alertActions.success("Logout successful");
+    nav("/", { replace: true });
+  };
   return (
     <PageLayout needfooter={false}>
       <div className="relative w-full px-20 pt-32">
@@ -113,7 +122,10 @@ function KYC() {
                 <img src={circle} />
                 <p className="text-[18px]">Help</p>
               </div>
-              <div className="w-full h-[50px] gap-3  flex px-7  items-center cursor-pointer border-[] border-t-2">
+              <div
+                className="w-full h-[50px] gap-3  flex px-7  items-center cursor-pointer border-[] border-t-2"
+                onClick={doLogout}
+              >
                 <img src={logout} />
                 <p className="text-[18px]">Log out</p>
               </div>
