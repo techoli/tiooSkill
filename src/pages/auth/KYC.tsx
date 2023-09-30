@@ -35,7 +35,8 @@ function KYC() {
   console.log(tokend);
   const getToken = {
     headers: {
-      Authorization: "Bearer " + tokend,
+      Authorization:
+        "Bearer " + tokend ? tokend : localStorage.getItem("token"),
     },
   };
 
