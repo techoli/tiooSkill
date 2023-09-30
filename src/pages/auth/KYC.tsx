@@ -33,17 +33,18 @@ function KYC() {
   const tokend = useSelector((state: any) => state.counter.token);
   const userid = useSelector((state: any) => state.counter.userid);
   console.log(tokend);
-  const getToken = {
-    headers: {
-      Authorization:
-        "Bearer " + tokend ? tokend : localStorage.getItem("token"),
-    },
-  };
 
   useEffect(() => {
+    const toks = localStorage.getItem("token");
+    console.log(toks);
+    const getToken = {
+      headers: {
+        Authorization: "Bearer " + toks,
+      },
+    };
     const getuserKYC = async () => {
       try {
-        const userKyc = await getuser(userid, getToken);
+        const userKyc = await getuser(userid ? userid : user2?.id, getToken);
         if (userKyc.status == 200) {
           console.log(userKyc);
           const kyc = userKyc?.data?.data?.KYC;
