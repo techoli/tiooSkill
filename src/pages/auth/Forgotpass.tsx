@@ -30,7 +30,7 @@ function Forgotpass() {
     }
   };
   return (
-    <div className="px-0 sm:px-20  sm:py-20 py-0 gap-5 bg-[#322D92] flex w-full relative">
+    <div className="px-0 sm:px-20  sm:py-20 py-0 gap-5 bg-[#322D92] flex w-full relative h-[100vh]">
       <img
         src={abs1}
         className="absolute top-[-40px] left-[-40px] sm:block hidden"
@@ -43,7 +43,7 @@ function Forgotpass() {
           get started
         </h1>
       </div>
-      <div className="bg-[#FFF] flex flex-col sm:flex-1 px-5 sm:px-10 py-5 gap-5 rounded-[8px] w-full ">
+      <div className="bg-[#FFF] flex flex-col sm:flex-1 px-5 sm:px-10 py-5 gap-5 rounded-[8px] w-full h-[450px] ">
         <div className="flex flex-col items-center justify-center w-full">
           <h1 className="text-[18px] sm:text-[24px] text-[#4F46E5]">
             Reset password

@@ -8,8 +8,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import imm from "../../images/navimg/imm.png";
 import { alertActions } from "./alertActions";
 import { SAVESUB_URL } from "../../services/url";
-import { getToken, getuser, saveSub } from "../../services/apiservices";
+import { getuser, saveSub } from "../../services/apiservices";
+import { useSelector } from "react-redux";
 const user = JSON.parse(localStorage.getItem("account") || "{}");
+const token = localStorage.getItem("token");
 
 interface payment {
   amt: number;
@@ -27,7 +29,13 @@ export const Payment: React.FC<payment> = ({
   part,
 }) => {
   const nav = useNavigate();
-
+  const tokend = useSelector((state: any) => state.counter.token);
+  const userid = useSelector((state: any) => state.counter.userid);
+  const getToken = {
+    headers: {
+      Authorization: "Bearer " + tokend,
+    },
+  };
   const config: any = {
     public_key: "FLWPUBK_TEST-3be9712248722ceefc75988f260aff50-X",
     tx_ref: Date.now(),
@@ -54,29 +62,30 @@ export const Payment: React.FC<payment> = ({
       //   user.paid = true;
       // localStorage.setItem("paid", JSON.stringify({ paid: true }));
       // window.location.reload();
-      window.location.href = "/dashboard";
-      nav("/dashboard");
-
+      console.log(response);
+      // console.log(getToken);
+      console.log(tokend);
       try {
-        await saveSub(
+        const dosub = await saveSub(
           {
             amount: 15000,
             status: "paid",
           },
           getToken
         );
-        const resubmituser = await getuser(user.id, getToken);
+        console.log(dosub);
+
+        const resubmituser = await getuser(userid, getToken);
+        if (resubmituser.status == 200) {
+          closePaymentModal(); // this will close the modal programmatically
+          window.location.href = "/";
+        }
+
         console.log(resubmituser);
-        localStorage.setItem("account", JSON.stringify(resubmituser.data));
+        localStorage.setItem("account", JSON.stringify(resubmituser.data.data));
       } catch (error) {
         console.log(error);
       }
-
-      setTimeout(() => {
-        closePaymentModal(); // this will close the modal programmatically
-      }, 2000);
-
-      console.log(response);
     },
     onClose: () => {},
   };

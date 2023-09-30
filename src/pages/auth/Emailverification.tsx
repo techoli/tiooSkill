@@ -7,7 +7,7 @@ import { resendEmail } from "../../services/apiservices";
 import { alertActions } from "../../components/component/alertActions";
 
 function Emailverification() {
-  const user = JSON.parse(localStorage.getItem("account") || "{}");
+  const user = JSON.parse(localStorage.getItem("signaccount") || "{}");
   const nav = useNavigate();
   const updateEmail = () => {
     nav("/signup", { replace: true });

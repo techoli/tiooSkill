@@ -9,6 +9,7 @@ import { Payment } from "../../../../../components/component/Payment";
 import { Input } from "../../../../../components/UI/Input";
 import { getToken, validateCoupon } from "../../../../../services/apiservices";
 import { alertActions } from "../../../../../components/component/alertActions";
+import { useSelector } from "react-redux";
 
 interface CourseModalProps {
   close: () => void;
@@ -190,7 +191,12 @@ const PaymentModal: React.FC<CourseModalProps> = ({
         </div>
       </div>
       <div className=" mt-5 w-full items-center justify-between border-t-[1px] py-4 px-[24px]">
-        <div className="cursor-pointer h-[50px]">
+        <div
+          className="cursor-pointer h-[50px]"
+          onClick={() => {
+            close();
+          }}
+        >
           <Payment
             full={full}
             part={part}

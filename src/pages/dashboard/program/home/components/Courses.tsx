@@ -4,6 +4,7 @@ import { COURSES } from "../../../../../data/data";
 import CenterModal from "../../../../../components/component/CenterModal";
 import PaymentModal from "./PaymentModal";
 import CurriculumModal from "./CurriculumModal";
+import { alertActions } from "../../../../../components/component/alertActions";
 
 function Courses() {
   const user = JSON.parse(localStorage.getItem("account") || "{}");
@@ -36,7 +37,16 @@ function Courses() {
       });
     });
   };
-  const doLoadmore = () => {};
+  const checksub = (item: any, itid: any) => {
+    if (user?.Subscription) {
+      setActive(true);
+      setActivetab(2);
+      setdataitem(item);
+      setcourseid(itid);
+    } else {
+      alertActions.error("Please proceed to make payment to see all lessons");
+    }
+  };
   return (
     <>
       <div className="mt-10 ww-full">
@@ -74,12 +84,7 @@ function Courses() {
                       ? `bg-[#FFF] text-[#4F46E5] cursor-pointer`
                       : `bg-[#f5f3f3] border-none`
                   }`}
-                  onClick={() => {
-                    setActive(true);
-                    setActivetab(2);
-                    setdataitem(item);
-                    setcourseid(item.id);
-                  }}
+                  onClick={() => checksub(item, item.id)}
                 >
                   View Lessons
                 </button>

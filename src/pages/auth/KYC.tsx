@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiCamera } from "react-icons/bi";
 import { DOB, Input, Selects } from "../../components/UI/Input";
 import { Button2 } from "../../components/UI/Button";
@@ -10,10 +10,11 @@ import earp from "../../images/authimg/earpiece.png";
 import sett from "../../images/authimg/setting.png";
 import arrl from "../../images/authimg/arrow-left.png";
 import def_prof from "../../images/authimg/def_prof.png";
-import { doKyc } from "../../services/apiservices";
+import { doKyc, getuser } from "../../services/apiservices";
 import { alertActions } from "../../components/component/alertActions";
 import { useNavigate } from "react-router-dom";
 import { doLogoutplatform } from "../../services/logout";
+import { useSelector } from "react-redux";
 
 function KYC() {
   const nav = useNavigate();
@@ -28,12 +29,44 @@ function KYC() {
   const [address, setaddress] = useState("");
   const [qualification, setqualification] = useState("");
   const [nationality, setnationality] = useState("");
+
+  const tokend = useSelector((state: any) => state.counter.token);
+  const userid = useSelector((state: any) => state.counter.userid);
+  console.log(tokend);
+  const getToken = {
+    headers: {
+      Authorization: "Bearer " + tokend,
+    },
+  };
+
+  useEffect(() => {
+    const getuserKYC = async () => {
+      try {
+        const userKyc = await getuser(userid, getToken);
+        if (userKyc.status == 200) {
+          console.log(userKyc);
+          const kyc = userKyc?.data?.data?.KYC;
+          setgender(kyc.gender);
+          setdob(kyc.dob);
+          setaddress(kyc.address);
+          setnationality(kyc.nationality);
+          setqualification(kyc.qualification);
+        }
+      } catch (error) {}
+    };
+    getuserKYC();
+  }, []);
+
   const onImageChange = (event: any) => {
     if (event.target.files && event.target.files[0]) {
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
   const doSave = async () => {
+    if (!gender || !nationality || !qualification) {
+      alertActions.success("Ensure all fields are entered");
+      return;
+    }
     const mdob = dob.split("-");
     const mdob2 = `${mdob[2]}/${mdob[1]}/${mdob[0]}`;
     setloading(true);
@@ -55,6 +88,7 @@ function KYC() {
       if (kyc.status == 200) {
         setloading(false);
         alertActions.success("Account updated successfully");
+        nav("/kyc");
       }
     } catch (error: any) {
       if (error?.code == "ERR_NETWORK") {

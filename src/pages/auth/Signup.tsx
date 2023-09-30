@@ -167,7 +167,7 @@ function Signup() {
   };
 
   return (
-    <div className="px-0 sm:px-20 py-0 sm:py-20 gap-5 bg-[#322D92] flex w-full relative">
+    <div className="px-0 sm:px-20 py-0 sm:py-20 gap-5 bg-[#322D92] flex w-full relative h-[100%]">
       <img
         src={abs1}
         className="absolute top-[-40px] left-[-40px] hidden sm:block"
@@ -180,7 +180,7 @@ function Signup() {
           get started
         </h1>
       </div>
-      <div className="bg-[#FFF] flex flex-col flex-1 px-5 sm:px-10 py-5 gap-5 rounded-[8px]">
+      <div className="bg-[#FFF] flex flex-col flex-1 px-5 sm:px-10 py-5 gap-5 rounded-[8px] h-[700px]">
         <div className="flex flex-col items-center justify-center w-full">
           <h1 className="text-[18px] sm:text-[24px] text-[#4F46E5]">Sign Up</h1>
           <p className="mt-4 text-[14px] sm:text-[18px]">
